@@ -3,7 +3,7 @@
 ## Transaction Process
 
 * [Introduction](README.md)
-* [Overall Steps](transaction-process/asdas.md)
+* [Overall Steps](overall-steps.md)
 
 ## Term
 
