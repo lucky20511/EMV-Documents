@@ -3,11 +3,10 @@
 ## Transaction Steps
 
 * [Introduction](README.md)
-* [Overall Steps](overall-steps.md)
 
 ## Terminology
 
-* [PDOL](pdol.md)
+* [Overall Steps](overall-steps.md)
 
 ## Technical Documents
 
