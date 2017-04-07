@@ -11,5 +11,5 @@
 
 ## Technical Documents
 
-* HL Document
+* [HL Document](technical-documents/hl-document.md)
 
