@@ -2,8 +2,8 @@
 
 ## Transaction Process
 
-* [Introduction](README.md)
 * [Overall Process](transaction-process/overall-process.md)
+* [Introduction](README.md)
 
 ## Term
 
