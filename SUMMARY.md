@@ -8,6 +8,7 @@
 ## Term
 
 * [PDOL](term/12312312.md)
+* [PDOL](term/pdol.md)
 
 ## Technical Documents
 
