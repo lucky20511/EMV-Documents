@@ -3,7 +3,7 @@
 ## Transaction Process
 
 * [Introduction](README.md)
-* [Overall Steps](overall-steps.md)
+* [Overall Process](transaction-process/overall-process.md)
 
 ## Term
 
