@@ -158,7 +158,7 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#It is the index to the subsequent \`READ RECORD\` APDU's
 
-\#It consists of group of four bytes, each group indicating a range of records.
+\#It consists of group of 4 bytes, each group indicating a range of records.
 
 #### 
 
