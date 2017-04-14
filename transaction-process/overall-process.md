@@ -12,9 +12,11 @@
 
 \#Application Selection Flag\(Canadian Flag\)
 
-	-Issuer Country Code
+```
+-Issuer Country Code
 
-	-Application Selection Flag - Prioirty for ABM or Non ABM
+-Application Selection Flag - Prioirty for ABM or Non ABM
+```
 
 \#The chosen EMV Application is activated in both terminal and smart card
 
@@ -22,31 +24,33 @@
 
 \#Two ways of building a candidate list:
 
-	1.PSE -- telephone book store on the smart card
+```
+1.PSE -- telephone book store on the smart card
 
-	2.Explicit Selection -- AID\(RID+PIX+ASI\) in terminal
+2.Explicit Selection -- AID\(RID+PIX+ASI\) in terminal
+```
 
 \#M=number of mutually supported
 
- M=0 -&gt; terminate transaction
+M=0 -&gt; terminate transaction
 
- M=1 -&gt;	1.Application may be automatically selected
+M=1 -&gt;    1.Application may be automatically selected
 
-  		2.Ask Cardholder confirmation
+```
+      2.Ask Cardholder confirmation
+```
 
- M&gt;1 -&gt;	1.Sort Application according to their priority
+M&gt;1 -&gt;    1.Sort Application according to their priority
 
-  		2.Optionally ask cardholder confirmation
+```
+      2.Optionally ask cardholder confirmation
+```
 
- ?????? ICC has priority list????????   Terminal has priority list ????????????????????????
+?????? ICC has priority list????????   Terminal has priority list ????????????????????????
 
 \#The final \`SELECT\` APDU is issued to the ICC, after the final selection has been made.
 
 @More details in 12.4 EMV 4.2 Book 1
-
-
-
-
 
 == Explicit Selection ==
 
@@ -56,23 +60,21 @@
 
 \#For each \`**SELECT**\`APDU ICC can respond with:
 
- 	1.\`6A 82\` File Not Found
+     1.\`6A 82\` File Not Found
 
- 	2.FCI data ++ \`62 89\` Application is Blocked
+     2.FCI data ++ \`62 89\` Application is Blocked
 
- 	3.\`6A 81\` Card is Blocked
+     3.\`6A 81\` Card is Blocked
 
- 	4.FCI data ++ \`90 00\` Application Selected
+     4.FCI data ++ \`90 00\` Application Selected
 
- 	@FCI=File Control Information
+     @FCI=File Control Information
 
- 	@APDU=Application Protocol Data Unit
+     @APDU=Application Protocol Data Unit
 
 \#If an application is found\(SW = \`90 00\`\) compare terminal AID with DF Name\(AID\) in FCI
 
 \#Add to candidate list or not
-
-
 
 == PSE \(Payment System Environment\) ==
 
@@ -84,15 +86,15 @@
 
 \#ICC can respond with:
 
-	1.\`6A 82\` File Not Found
+    1.\`6A 82\` File Not Found
 
-	2.FCI data ++ \`62 82\` Application is Blocked
+    2.FCI data ++ \`62 82\` Application is Blocked
 
-	3.\`6A 81\` Card is Blocked
+    3.\`6A 81\` Card is Blocked
 
-	4.FCI data ++ \`90 00\` Application Selected
+    4.FCI data ++ \`90 00\` Application Selected
 
-	@The FCI of the PSE contains the filename SFI of the telephone book
+    @The FCI of the PSE contains the filename SFI of the telephone book
 
 \#If it succeed\(SW = \`90 00\`\), terminal sends \`**READ RECORD**\` APDU indicating the correct SFI\(file name of the telephone book\) and starting with record \#1.
 
@@ -104,43 +106,41 @@
 
 \#Once the final selection has been made, the \`**SELECT**\` APDU is issued to the ICC
 
-
-
 #### 2.Read Application Data
 
-
+#### 
 
 #### 3.Data Authentication
 
-
+#### 
 
 #### 4.Processing Restriction
 
-
+#### 
 
 #### 5.Cardholder Verification
 
-
+#### 
 
 #### 6.Terminal Risk Management
 
-
+#### 
 
 #### 7.Terminal Action Analysis
 
-
+#### 
 
 #### 8.Card Action Analysis
 
-
+#### 
 
 #### 9.Online/Offline Decision
 
-
+#### 
 
 #### 9a.Online Processing & Issuer Authentication
 
-
+#### 
 
 #### 9b.Script Processing
 
