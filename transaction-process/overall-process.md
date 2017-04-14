@@ -287,11 +287,60 @@ AID = RID + PIX + ASI
 
 \#No APDU's are used in this Step.4 because it only used the data retrieved from step2
 
-
-
 #### 5.Cardholder Verification\(Result stored in TVR\)
 
-#### 
+\# The cardholder has to authenticate himself through either:
+
+```
+1.Online or Offline PIN
+
+2.Signature
+
+3.No CVM
+
+4.Future methods can be supported (Biometry)
+
+@The method are depends on (1)CVM List in the chip, and (2)Terminal capabilities
+```
+
+== CVM List ==
+
+```
+Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
+00 00 00 00         00 00 00 00        42  01          04  03           xx   xx
+
+@CV Rule  =  CVM Code + CVM Condition Code
+```
+
+
+
+== CVM Code ==
+
+| value | Meaning |
+| :---: | :---: |
+| '00' | Fail CVM Processing |
+| '01'/'04' | Plaintext PIN Verification by ICC |
+| '02/42' | Enciphered PIN Verification Online  |
+| '03/43' | Plaintext PIN Verification by ICC and Signature \(Paper\) |
+| '04/44' | Encipher PIN Verification by ICC |
+| '05/45' | Enciphered PIN Verification by ICC and Signature \(Paper\)  |
+| '1E/5E' | Signature \(Paper\) Verification |
+| 1F | No CVM |
+
+== CVM Condition Code ==
+
+|  |  |
+| :--- | :--- |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
 #### 6.Terminal Risk Management
 
