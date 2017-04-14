@@ -150,6 +150,12 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
                                 <-- Record Data
 
+== Record Data Format==   \(READ RECORD or Record Data\)
+
+SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data authentication
+
+
+
 == AIP \(Application Interchange Profile\) ==
 
 \#It indicates which feature are supported by the chip \(SDA, DDA CDA, Issuer Authentication\)
