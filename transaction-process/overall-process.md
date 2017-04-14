@@ -374,11 +374,23 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 -- The chip needs to contain a RSA key-pair \\(this can be a dedicated PIN key, or the same key used for DDA/CDA\\)
 
-#### 6.Terminal Risk Management
+#### 6.Terminal Risk Management\(Result stored in TVR\)
 
-\#This step Terminal Risk Management is only performed when indicated in the AIP \(get from step.2 get application data\)
+\#This step Terminal Risk Management is only performed when indicated in the **AIP** \(from step.2 get application data\)
 
 \#It is optional for online-only terminal such as ATM.
+
+\#It performs following risk management checks:
+
+```
+1.Transaction Floor Limit
+
+2.Transaction Random Selection
+
+3.Exception file
+```
+
+
 
 #### 7.Terminal Action Analysis\(Terminal Decision\)
 
