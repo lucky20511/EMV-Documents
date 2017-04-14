@@ -9,7 +9,7 @@
 
 * [PDOL](term/pdol.md)
 * [AC](term/ac.md)
-* CDOL
+* [CDOL](term/cdol.md)
 
 ## Technical Documents
 

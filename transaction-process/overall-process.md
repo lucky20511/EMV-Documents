@@ -43,7 +43,7 @@ M>1 ->  1.Sort Application according to their priority
 ?????? ICC has priority list????????   Terminal has priority list ????????????????????????
 ```
 
-\#The final \`SELECT\` APDU is issued to the ICC, after the final selection has been made.
+\#The final \`**SELECT**\` APDU is issued to the ICC, after the final selection has been made.
 
 @More details in 12.4 EMV 4.2 Book 1
 
@@ -51,7 +51,7 @@ M>1 ->  1.Sort Application according to their priority
 
 \#A list of predefined telephone numbers\(AID\). The terminal tries to select all AIDs in order to determine which applications are present on the smart card.
 
-\#Terminal uses \`SELECT\` APDU to try to select each application\(all application\) on ICC with all AID
+\#Terminal uses \`**SELECT**\` APDU to try to select each application\(all application\) on ICC with all AID
 
 \#For each \`**SELECT**\`APDU ICC can respond with:
 
@@ -163,7 +163,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 == AFL \(Application File Locator\) ==
 
-\#It is the index to the subsequent \`READ RECORD\` APDU's
+\#It is the index to the subsequent \`**READ RECORD**\` APDU's
 
 \#It consists of group of 4 bytes, each group indicating a range of records.
 
@@ -556,7 +556,9 @@ The steps of this online processing & issuer authentication:
 
 Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Action Analysis** and overrule by **Card Action Analysis** on the Terminal.
 
-**IF ONLINE**
+
+
+**IF ONLINE but CANNOT GO ONLINE**
 
 == 3rd -&gt; IAC Default  + TAC Default ==
 
@@ -579,6 +581,16 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 --> '00' AAC (Decline)
 --> '40' TC  (Approval)
 ```
+
+\#If using CDA
+
+-- the response of the chip is signed under ICC private key
+
+-- ICC public key verify the returned AC which was signed using ICC private key
+
+
+
+**IF ONLINE and GO ONLINE**
 
 \#If using CDA
 
