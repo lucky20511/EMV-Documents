@@ -180,15 +180,21 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 \*3.CDA \(Combined DDA/Generate AC\)
 
- 
+
+
+== CA \(Certification Authority\) public key ==
+
+\#CA public keys are stored in the EMV terminal per RID\(first 5 bits of AID\)
+
+
 
 == SDA ==
 
-Based on  Asymmetric Key Technology -&gt; public and private key
+\#Based on  Asymmetric Key Technology -&gt; public and private key
 
-Digital Signnature
+\#Digital Signnature
 
-CA \(certification Authority\) pubic keys issued by Card Brand
+\#CA \(certification Authority\) pubic keys issued by Card Brand
 
 #### 4.Processing Restriction
 
