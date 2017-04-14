@@ -174,25 +174,21 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 \#Three methods, depending on chip and terminal capabilities:
 
-	1.SDA \(Static Data Authentication\)
+1.SDA \(Static Data Authentication\)
 
-	2.DDA \(Dynamic Data Authentication\)
+2.DDA \(Dynamic Data Authentication\)
 
-	\*3.CDA \(Combined DDA/Generate AC\)
-
-
+\*3.CDA \(Combined DDA/Generate AC\)
 
 
 
 == SDA ==
 
-Based on  RSA Asymmetric Key Technology -&gt; public and private key
+Based on  Asymmetric Key Technology -&gt; public and private key
 
 Digital Signnature
 
 CA \(certification Authority\) pubic keys issued by Card Brand
-
-
 
 #### 4.Processing Restriction
 
