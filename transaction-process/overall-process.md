@@ -415,7 +415,7 @@ Result = (TVR & IR) & (IAC | TAC)
    1st -> IAC Denial  + TAC Denial
    2nd -> IAC Online  + TAC Online
    3rd -> IAC Default + TAC Offline
-   
+
 @IAC -- Issuer Action Code
 @TAC -- Terminal Action Code
 ```
@@ -500,7 +500,7 @@ Result = (TVR & IR) & (IAC | TAC)
   steps.8(Card action analysis) and step.11(Online/Offline Decision)
 ```
 
-#### 9a.Online Processing & Issuer Authentication  \(Online only -- ARQC\)
+#### 9a.Online Processing & Issuer Authentication  \(Online only -- ARQC to ARPC\)
 
 The steps of this online processing & issuer authentication:
 
@@ -547,8 +547,6 @@ The steps of this online processing & issuer authentication:
 3.ICC private Key
 4.TDES key
 ```
-
-
 
 #### 10.Completion
 
