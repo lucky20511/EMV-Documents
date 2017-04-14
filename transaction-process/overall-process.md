@@ -208,7 +208,7 @@ AID = RID + PIX + ASI
 
 == SDA ==
 
-\#SDA is static -- the signature that is verified is the same  for every transaction
+\#SDA is static -- the signature that is verified is the **same**  for every transaction
 
 \#SDA consists of 3 steps:
 
@@ -221,21 +221,28 @@ AID = RID + PIX + ASI
 
 @Signed static application data is a concatenation of (1)Records indicated in the AFL, and 
  (2)Data elements in the (optional) SDA Tag list
-
-
 ```
 
 == DDA ==
 
-\#DDA is dynamic -- the signature that is verified is different for every transaction
+\#DDA is dynamic -- the signature that is verified is **different** for every transaction
 
+\#For DDA, the chip contains it's own RSA key pair and needs to be RSA-capable
 
+\#DDA consists of 3 steps:
 
+```
+1.Retrieval of CA public key
 
+2.CA public key verify the Issuer public key certificate
 
+3.Issuer public key verify ICC public key certificate
 
+4.ICC public key verify the signed dynamic data (SHA-1 hash)
 
-
+@Signed static application data is a concatenation of (1)Records indicated in the AFL, and 
+ (2)Data elements in the (optional) SDA Tag list
+```
 
 
 
