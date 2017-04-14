@@ -182,9 +182,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 
 
-
-
-
+a
 
 == SDA ==
 
@@ -216,7 +214,7 @@ CA \(certification Authority\) pubic keys issued by Card Brand
 
 #### 9.Online/Offline Decision
 
-#### 
+
 
 #### 9a.Online Processing & Issuer Authentication
 
