@@ -311,7 +311,7 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 @CV Rule  =  CVM Code + CVM Condition Code
 @What is X and Y?????????
-@How to get CVM List from ICC???  by APDU???? 
+@How to get CVM List from ICC???  by APDU????
 ```
 
 @CVM Code
@@ -362,7 +362,7 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 \#No APDU to chip, same as for MSR
 
- == Offline PIN Verification ==
+== Offline PIN Verification ==
 
 \#Before offline PIN Verification is performed, a 'GET DATA' APDU is sent to the chip to retrieve the PIN Try Counter \(PTC\)
 
@@ -370,13 +370,9 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 \#If **Enciphered PIN**
 
-      -- Prior to offline enciphered PIN verification, 'GET CHALLENGE' APDU is used to obtain a random number from the chip
+-- Prior to offline enciphered PIN verification, 'GET CHALLENGE' APDU is used to obtain a random number from the chip
 
-      -- The chip needs to contain a RSA key-pair \(this can be a dedicated PIN key, or the same key used for DDA/CDA\)
-
-
-
-
+-- The chip needs to contain a RSA key-pair \\(this can be a dedicated PIN key, or the same key used for DDA/CDA\\)
 
 #### 6.Terminal Risk Management
 
