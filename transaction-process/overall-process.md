@@ -84,8 +84,6 @@ AID = RID + PIX + ASI
          A0 00 00 03     10 10    Yes
 ```
 
-
-
 == PSE \(Payment System Environment\) ==
 
 \#PSE is optinal by both ICC and terminal application
@@ -178,7 +176,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 #### 3.Data Authentication
 
-\#Usig the data retrieved in Step 2, the terminal is able to determine whether the smart card is genuine or not and determine chip authenticity
+\#Usig the data retrieved in Step 2, the terminal is able to determine \(1\)verify the **issuer public key** by **CA public key**, and \(2\)whether the smart card is genuine or not and determine chip authenticity by **issuer public key**.
 
 \#Done by RSA cryptography --&gt; Terminals contains a set of public keys: Visa, Master, Interac
 
@@ -189,12 +187,26 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 2.DDA (Dynamic Data Authentication)
 
-*3.CDA (Combined DDA/Generate AC)
+*3.CDA (Combined DDA/Generate AC) -- Affect card risk management
 ```
 
 == CA \(Certification Authority\) public key ==
 
+\#The CA public key is used to verify the issuer public key certificate\(Stored on chip\). If it is ok, the terminal  can trust the issuer public key
+
 \#CA public keys are stored in the EMV terminal per RID\(first 5 bits of AID\)
+
+```
+AID = RID + PIX + ASI
+             RID          PIX     ASI
+         A0 00 00 03     10 10    Yes
+```
+
+\#Key ring = RID of application
+
+\#Key number = CA public key index
+
+
 
 == SDA ==
 
