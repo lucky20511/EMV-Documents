@@ -556,8 +556,6 @@ The steps of this online processing & issuer authentication:
 
 Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Action Analysis** and overrule by **Card Action Analysis** on the Terminal.
 
-
-
 **IF ONLINE but CANNOT GO ONLINE**
 
 == 3rd -&gt; IAC Default  + TAC Default ==
@@ -570,11 +568,11 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 == Generate AC ==
 
 ```
-                [Terminal]                                     [ICC]
+                [Terminal]                                          [ICC]
 
 'GENERATE AC' (CDOL2 data(contains ARPC) + AC type) --->
 
-                                      <--- AC (Application Cryptogram)  determined by ARPC + AC-type
+                                                    <--- AC (Application Cryptogram)
 
 
 @AC types:
@@ -587,8 +585,6 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 -- the response of the chip is signed under ICC private key
 
 -- ICC public key verify the returned AC which was signed using ICC private key
-
-
 
 **IF ONLINE and GO ONLINE**
 
