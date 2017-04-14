@@ -310,37 +310,73 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 00 00 00 00         00 00 00 00        42  01          04  03           xx   xx
 
 @CV Rule  =  CVM Code + CVM Condition Code
+@What is X and Y?????????
+@How to get CVM List from ICC???  by APDU???? 
 ```
 
-
-
-== CVM Code ==
+@CVM Code
 
 | value | Meaning |
 | :---: | :---: |
 | '00' | Fail CVM Processing |
 | '01'/'04' | Plaintext PIN Verification by ICC |
-| '02/42' | Enciphered PIN Verification Online  |
+| '02/42' | Enciphered PIN Verification Online |
 | '03/43' | Plaintext PIN Verification by ICC and Signature \(Paper\) |
 | '04/44' | Encipher PIN Verification by ICC |
-| '05/45' | Enciphered PIN Verification by ICC and Signature \(Paper\)  |
+| '05/45' | Enciphered PIN Verification by ICC and Signature \(Paper\) |
 | '1E/5E' | Signature \(Paper\) Verification |
 | 1F | No CVM |
 
-== CVM Condition Code ==
+@CVM Condition Code
 
-|  |  |
-| :--- | :--- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Value | Meaning |
+| :---: | :---: |
+| '00' | Always |
+| '01' | If unattended cash |
+| '02' | If not unattended cash and not manual cash and not purchase with cashback |
+| '03' | If terminal supports CVM |
+| '04' | If purchase with cashback |
+| '05' | If transaction with cashback |
+| '06' | If transaction is in the application currency and is over X value |
+| '07' | If transaction is in the application currency and is under X value |
+| '08' | If transaction is in the application currency and is over Y value |
+| '09' | If transaction is in the application currency and is under Y value |
+
+== Signature ==
+
+\#If terminal has the ability to print a transaction receipt, this CVM is successful
+
+\#No APDU to ICC
+
+== Online PIN Verification ==
+
+\#Card holder will be prompted to enter PIN code
+
+\#PIN is encrypted in the PINPad and produced PIN block is stored in terminal
+
+\#Note: at this point, it is not yet known whether or not the transaction will go online
+
+\#What will happen if the PIN is entered but go offline?????
+
+\#Once PIN is entered, this CVM is successful
+
+\#No APDU to chip, same as for MSR
+
+ == Offline PIN Verification ==
+
+\#Before offline PIN Verification is performed, a 'GET DATA' APDU is sent to the chip to retrieve the PIN Try Counter \(PTC\)
+
+\#If **Plaintext PIN **-- the PIN is sent directly to the chip for verification
+
+\#If **Enciphered PIN**
+
+      -- Prior to offline enciphered PIN verification, 'GET CHALLENGE' APDU is used to obtain a random number from the chip
+
+      -- The chip needs to contain a RSA key-pair \(this can be a dedicated PIN key, or the same key used for DDA/CDA\)
+
+
+
+
 
 #### 6.Terminal Risk Management
 
