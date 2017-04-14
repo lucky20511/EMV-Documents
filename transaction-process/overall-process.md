@@ -390,11 +390,40 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 3.Exception file
 ```
 
-
-
 #### 7.Terminal Action Analysis\(Terminal Decision\)
 
-#### 
+\#In this step, the terminal determines a verdict by the following information
+
+```
+1.TVR
+2.IR (Intermediate  Result)
+3.IAC TAC
+
+Result = (TVR & IR) & (IAC | TAC)
+
+@Follows the order:
+   1st -> IAC Denial  + TAC Denial
+   2nd -> IAC Online  + TAC Online
+   3rd -> IAC Default + TAC Offline
+@IAC -- Issuer Action Code
+@TAC -- Terminal Action Code
+```
+
+== 1st -&gt; IAC Denial  + TAC Denial ==
+
+\#If Result != '00 00 00 00 00', the terminal will request an AAC meaning decline transaction offline\)
+
+\#If Result == '00 00 00 00 00', the terminal will proceed to 2nd -&gt; IAC Online  + TAC Online
+
+== 2nd -&gt; IAC Online  + TAC Online ==
+
+\#If Result != '00 00 00 00 00', the terminal will request an ARQC 
+
+\#If Result == '00 00 00 00 00', the terminal will request TC
+
+
+
+\#At the end of this step Terminal Action Analysis, the terminal communicate the verdict to ICC.
 
 #### 8.Card Action Analysis\(Card Risk Management\)
 
