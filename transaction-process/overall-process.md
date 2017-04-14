@@ -339,8 +339,8 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 | '01' | If unattended cash |
 | '02' | If not unattended cash and not manual cash and not purchase with cashback |
 | '03' | If terminal supports CVM |
-| '04' | If purchase with cashback |
-| '05' | If transaction with cashback |
+| '04' | If manual cash |
+| '05' | If purchase with cashback |
 | '06' | If transaction is in the application currency and is over X value |
 | '07' | If transaction is in the application currency and is under X value |
 | '08' | If transaction is in the application currency and is over Y value |
@@ -570,7 +570,7 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 ```
                 [Terminal]                                          [ICC]
 
-'GENERATE AC' (CDOL2 data(contains ARPC) + AC type) --->
+'GENERATE AC' (CDOL2 data + AC type) --->
 
                                                     <--- AC (Application Cryptogram)
 
@@ -587,6 +587,25 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 -- ICC public key verify the returned AC which was signed using ICC private key
 
 **IF ONLINE and GO ONLINE**
+
+== ARPC Judgement ==
+
+\#The Terminal judges if it is AAC or TC by reading ARPC content. 
+
+== Generate AC ==
+
+```
+                [Terminal]                                         [ICC]
+
+'GENERATE AC' (CDOL2 data + AC type) --->
+
+                                                <--- AC (Application Cryptogram)
+
+
+@AC types:
+--> '00' AAC (Decline)
+--> '40' TC (Approval)
+```
 
 \#If using CDA
 
