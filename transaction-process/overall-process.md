@@ -508,12 +508,11 @@ The steps of this online processing & issuer authentication:
 
 3.Issuer (1)authorizes the transaction, and 
          (2)calculates ARPC (Authorization Response Cryptogram), and 
-         (3)sends ARPC to terminal
+         (3)sends ARPC back to terminal
+         
+@ARPC -- Authorization Response Cryptogram
+@ARQC -- Authorization Request Cryptogram
 ```
-
-
-
-
 
 #### 9b.Script Processing \(Online only -- ARQC\)
 
