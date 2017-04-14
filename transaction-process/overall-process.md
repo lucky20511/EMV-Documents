@@ -122,7 +122,7 @@ AID = RID + PIX + ASI
 
 #### 
 
-#### 2.Read Application Data
+#### 2.Read Application Data\(ICC Data\)
 
 \#The terminal application reads application related information stored in the smart card
 
@@ -174,7 +174,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 #### 
 
-#### 3.Data Authentication
+#### 3.Data Authentication \(Result stored in TVR\)
 
 \#Usig the data retrieved in Step 2, the terminal is able to determine \(1\)verify the **issuer public key\(in ICC\)** by **CA public key**, and \(2\)whether the smart card is genuine or not and determine chip authenticity by **issuer public key**.
 
@@ -245,26 +245,51 @@ AID = RID + PIX + ASI
     [Terminal]                            [ICC]
     INTERNAL AUTHENTICATE + (DDOL) -->   
                          <--Signature over data(signed dynamic data)
+
   ==> DDOL(Dynamic Object List) contains data elements that the chip should sign
- 
- 
 ```
-
-
 
 == CDA ==
 
 \#Combine DDA / Generate AC \(CDA\) is used to prevent fraud by modifying chip communication between ICC and Terminal
 
+\#DDA consists of 3 steps:
+
+```
+1.Retrieval of CA public key
+
+2.CA public key verify the Issuer public key certificate (same as SDA)
+
+3.Issuer public key verify ICC public key certificate
+
+*.The response to 'GENERATE AC' is signed using ICC private key
+*.The actual verification of this signed dynamic data takes place in 
+  steps.8(Card action analysis) and step.11(Online/Offline Decision)
+```
+
+#### 4.Processing Restriction\(Result stored in TVR\)
+
+\#Using the data retrieved in Step.2 Read Application Data, the terminal determines if the smart card application can be used with that particular terminal
+
+\#The following checks are carriesd out by the terminal:
+
+```
+1.Application Expiry
+
+2.Activation Date
+
+3.Application version of smart card and terminal application
+
+4.Environment(eg. ATM only, domestic only), using the contents of AUC(Application Usage Control)
+
+@Where is AUC from??????  Step.2??????
+```
+
+\#No APDU's are used in this Step.4 because it only used the data retrieved from step2
 
 
 
-
-#### 4.Processing Restriction
-
-#### 
-
-#### 5.Cardholder Verification
+#### 5.Cardholder Verification\(Result stored in TVR\)
 
 #### 
 
@@ -272,11 +297,11 @@ AID = RID + PIX + ASI
 
 #### 
 
-#### 7.Terminal Action Analysis
+#### 7.Terminal Action Analysis\(Terminal Decision\)
 
 #### 
 
-#### 8.Card Action Analysis
+#### 8.Card Action Analysis\(Card Risk Management\)
 
 #### 
 
