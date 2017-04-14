@@ -176,7 +176,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 #### 3.Data Authentication
 
-\#Usig the data retrieved in Step 2, the terminal is able to determine \(1\)verify the **issuer public key** by **CA public key**, and \(2\)whether the smart card is genuine or not and determine chip authenticity by **issuer public key**.
+\#Usig the data retrieved in Step 2, the terminal is able to determine \(1\)verify the **issuer public key\(in ICC\)** by **CA public key**, and \(2\)whether the smart card is genuine or not and determine chip authenticity by **issuer public key**.
 
 \#Done by RSA cryptography --&gt; Terminals contains a set of public keys: Visa, Master, Interac
 
@@ -206,15 +206,38 @@ AID = RID + PIX + ASI
 
 \#Key number = CA public key index
 
-
-
 == SDA ==
 
-\#Based on  Asymmetric Key Technology -&gt; public and private key
+\#SDA is static -- the signature that is verified is the same  for every transaction
 
-\#Digital Signnature
+\#SDA consists of 3 steps:
 
-\#CA \(certification Authority\) pubic keys issued by Card Brand
+```
+1.Retrieval of CA public key
+
+2.CA public key verify the Issuer Public Key Certificate
+
+3.Issuer public key verify the signed static data (SHA-1 hash)
+
+@Signed static application data is a concatenation of (1)Records indicated in the AFL, and 
+ (2)Data elements in the (optional) SDA Tag list
+
+
+```
+
+== DDA ==
+
+\#DDA is dynamic -- the signature that is verified is different for every transaction
+
+
+
+
+
+
+
+
+
+
 
 #### 4.Processing Restriction
 
