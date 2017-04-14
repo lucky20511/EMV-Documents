@@ -268,7 +268,7 @@ AID = RID + PIX + ASI
 *4.ICC public key verify the returned AC which was signed using ICC private key
 
 
-*** Difference from DDA is step.4 will be apply to 
+*** Difference from DDA is step.4 will be applied in Card Action Analysis
 
 *.The response to 'GENERATE AC' is signed using ICC private key
 *.The actual verification of this signed dynamic data takes place in 
@@ -446,7 +446,7 @@ Result = (TVR & IR) & (IAC | TAC)
 
        'GENERATE AC' (CDOL1 data + AC type) --->
 
-               ---------- Step 8 Starts ----------
+       ------------------- Step 8 Starts ------------------
 
                             <--- AC (Application Cryptogram)
 
@@ -469,7 +469,7 @@ Result = (TVR & IR) & (IAC | TAC)
 
 -- MasterCard-defined risk parameters: **Card Issuer Action Codes, CIAC**
 
-\#If using CDA, 
+\#If using CDA,
 
 -- The AC \(response to terminal's 'GEN. AC'\) is signed using ICC's private key only in **TC** or **ARQC**.
 
@@ -490,22 +490,32 @@ Result = (TVR & IR) & (IAC | TAC)
 *4.ICC public key verify the returned AC which was signed using ICC private key
 
 
-*** Difference from DDA is step.4 will be apply to 
+*** Difference from DDA is step.4 will be applied in Card Action Analysis
 
 *.The response to 'GENERATE AC' is signed using ICC private key
 *.The actual verification of this signed dynamic data takes place in 
   steps.8(Card action analysis) and step.11(Online/Offline Decision)
 ```
 
+#### 9a.Online Processing & Issuer Authentication  \(Online only -- ARQC\)
+
+The steps of this online processing & issuer authentication:
+
+```
+1.The online authorization message is constructed and sent to the issuer of the card.
+
+2.EMV online process of authorization based on the message terminal sent to it
+
+3.Issuer (1)authorizes the transaction, and 
+         (2)calculates ARPC (Authorization Response Cryptogram), and 
+         (3)sends ARPC to terminal
+```
 
 
-#### 9.Online/Offline Decision
 
-#### 9a.Online Processing & Issuer Authentication
 
-#### 
 
-#### 9b.Script Processing
+#### 9b.Script Processing \(Online only -- ARQC\)
 
 #### 
 
