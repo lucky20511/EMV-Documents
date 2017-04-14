@@ -414,7 +414,7 @@ Result = (TVR & IR) & (IAC | TAC)
 @Follows the order:
    1st -> IAC Denial  + TAC Denial
    2nd -> IAC Online  + TAC Online
-   3rd -> IAC Default + TAC Offline
+   3rd -> IAC Default + TAC Default     ==> in Completion step
 
 @IAC -- Issuer Action Code
 @TAC -- Terminal Action Code
@@ -432,6 +432,12 @@ Result = (TVR & IR) & (IAC | TAC)
 ```
 #If Result != '00 00 00 00 00', the terminal will request an ARQC from ICC
 #If Result == '00 00 00 00 00', the terminal will request a TC from ICC
+```
+
+== 3rd -&gt; IAC Default  + TAC Default ==
+
+```
+#It will be performed on Completion step
 ```
 
 @AAC \(Application Authentication Cryptogram\) --&gt; for Offline Decline
@@ -549,6 +555,17 @@ The steps of this online processing & issuer authentication:
 ```
 
 #### 10.Completion
+
+**IF OFFLINE**
+
+== 3rd -&gt; IAC Default  + TAC Default ==
+
+```
+#If Result != '00 00 00 00 00', the terminal will request an AAC from ICC
+#If Result == '00 00 00 00 00', the terminal will request a TC from ICC
+```
+
+**IF ONLINE**
 
 
 
