@@ -64,9 +64,9 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
      2.FCI data ++ `62 89` Application is Blocked
 
-     3.`6A 81\` Card is Blocked
+     3.`6A 81` Card is Blocked
 
-     4.FCI data ++ \`90 00\` Application Selected
+     4.FCI data ++ `90 00` Application Selected
 
      @FCI=File Control Information
 
@@ -86,13 +86,13 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#ICC can respond with:
 
-    1.\`6A 82\` File Not Found
+    1.`6A 82` File Not Found
 
-    2.FCI data ++ \`62 82\` Application is Blocked
+    2.FCI data ++ `62 82` Application is Blocked
 
-    3.\`6A 81\` Card is Blocked
+    3.`6A 81` Card is Blocked
 
-    4.FCI data ++ \`90 00\` Application Selected
+    4.FCI data ++ `90 00` Application Selected
 
     @The FCI of the PSE contains the filename SFI of the telephone book
 
@@ -120,15 +120,15 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#The following APDU's are used:
 
-    1.\`GET PROCESSING OPTIONS\` or GPO  -- issued once
+    1.`GET PROCESSING OPTIONS` or GPO  -- issued once
 
-    2.\`READ RECORD\` -- issued more than once
+    2.`READ RECORD` -- issued more than once
 
     @GPO is initial application
 
     @GPO is used to convey PDOL data to ICC, and to retrieve AIP and AFL
 
-    @In most cases PDOL is empty    PDOL \(Processing Data Object List\)
+    @In most cases PDOL is empty    PDOL(Processing Data Object List)
 
 \#Main Steps:
 
