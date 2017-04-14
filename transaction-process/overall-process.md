@@ -264,6 +264,12 @@ AID = RID + PIX + ASI
 
 3.Issuer public key verify ICC public key certificate
 
+*Step 4 is in Card Risk Management
+*4.ICC public key verify the returned AC which was signed using ICC private key
+
+
+*** Difference from DDA is step.4 will be apply to 
+
 *.The response to 'GENERATE AC' is signed using ICC private key
 *.The actual verification of this signed dynamic data takes place in 
   steps.8(Card action analysis) and step.11(Online/Offline Decision)
@@ -439,7 +445,7 @@ Result = (TVR & IR) & (IAC | TAC)
        [Terminal]                                     [ICC]
 
        'GENERATE AC' (CDOL1 data + AC type) --->
-        
+
                ---------- Step 8 Starts ----------
 
                             <--- AC (Application Cryptogram)
@@ -451,7 +457,7 @@ Result = (TVR & IR) & (IAC | TAC)
  --> '40'  TC    (for Offline Approval)
 ```
 
-\#This AC will be view as a verdict of terminal decision and will be used for next step 
+\#This AC will be view as a verdict of terminal decision and will be used for next step
 
 #### 8.Card Action Analysis\(Card Risk Management\) --&gt; by AC
 
@@ -463,9 +469,33 @@ Result = (TVR & IR) & (IAC | TAC)
 
 -- MasterCard-defined risk parameters: **Card Issuer Action Codes, CIAC**
 
-\#**CDA** \(Combine DDA and AC**\)**
+\#If using CDA, 
 
-CDA - _"The response to 'GENERATE AC' is signed using ICC private key"_
+-- The AC \(response to terminal's 'GEN. AC'\) is signed using ICC's private key only in **TC** or **ARQC**.
+
+-- The terminal can verify the authenticity of this AC by ICC's public key
+
+\#Terminal can **NOT** verify the contents of the AC
+
+== **CDA** \(Combine DDA and AC\) == in Data Authentication
+
+```
+1.Retrieval of CA public key
+
+2.CA public key verify the Issuer public key certificate (same as SDA)
+
+3.Issuer public key verify ICC public key certificate
+
+*Step 4 is in Card Risk Management
+*4.ICC public key verify the returned AC which was signed using ICC private key
+
+
+*** Difference from DDA is step.4 will be apply to 
+
+*.The response to 'GENERATE AC' is signed using ICC private key
+*.The actual verification of this signed dynamic data takes place in 
+  steps.8(Card action analysis) and step.11(Online/Offline Decision)
+```
 
 
 
