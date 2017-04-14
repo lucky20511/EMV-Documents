@@ -107,14 +107,62 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 \#Once the final selection has been made, the \`**SELECT**\` APDU is issued to the ICC
 
         [Terminal]                [ICC]
+
         SELECT (application)-->
+
                     <-- FCI ++ `90 00`
 
 #### 
 
 #### 2.Read Application Data
 
-#### 
+\#The terminal application reads application related information stored in the smart card
+
+\#The following APDU's are used:
+
+	1.\`GET PROCESSING OPTIONS\` or GPO  --&gt; issued once
+
+	2.\`READ RECORD\` --&gt; issued more than once
+
+	@GPO is initial application
+
+	@GPO is used to convey PDOL data to ICC, and to retrieve AIP and AFL
+
+	@In most cases PDOL is empty    PDOL \(Processing Data Object List\)
+
+\#Main Steps:
+
+            [Terminal]                 [ICC]
+
+    Step1	SELECT (application)-->
+
+                            <-- FCI ++ `90 00`
+
+    Step2	GPO -->
+
+                     <-- AIP ++ AFL ++ `90 00`
+
+            READ RECORD -->
+
+                               <-- Record Data
+
+            READ RECORD -->
+
+                                <-- Record Data
+
+== AIP \(Application Interchange Profile\) ==
+
+\#It indicates which feature are supported by the chip \(SDA, DDA CDA, Issuer Authentication\)
+
+
+
+== AFL \(Application File Locator\) ==
+
+\#It is the index to the subsequent \`READ RECORD\` APDU's
+
+\#It consists of group of four bytes, each group indicating a range of records.
+
+
 
 #### 3.Data Authentication
 
