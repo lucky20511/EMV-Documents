@@ -8,7 +8,8 @@
 ## Term
 
 * [PDOL](term/pdol.md)
-* AC
+* [AC](term/ac.md)
+* CDOL
 
 ## Technical Documents
 
