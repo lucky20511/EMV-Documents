@@ -15,7 +15,7 @@
 ```
 -Issuer Country Code
 
--Application Selection Flag - Prioirty for ABM or Non ABM
+-Application Selection Flag --> Prioirty for ABM or Non ABM
 ```
 
 \#The chosen EMV Application is activated in both terminal and smart card
@@ -27,26 +27,21 @@
 ```
 1.PSE -- telephone book store on the smart card
 
-2.Explicit Selection -- AID(RID+PIX+ASI\ in terminal
+2.Explicit Selection -- AID(RID+PIX+ASI) in terminal
 ```
 
-\#M=number of mutually supported
-
-M=0 -&gt; terminate transaction
-
-M=1 -&gt;    1.Application may be automatically selected
+\#Built Candidate List with M options
 
 ```
-      2.Ask Cardholder confirmation
-```
-
-M&gt;1 -&gt;    1.Sort Application according to their priority
-
-```
-      2.Optionally ask cardholder confirmation
-```
+M=number of mutually supported
+M=0 ->  Terminate transaction
+M=1 ->  1.Application may be automatically selected
+        2.Ask Cardholder confirmation
+M>1 ->  1.Sort Application according to their priority
+        2.Optionally ask cardholder confirmation
 
 ?????? ICC has priority list????????   Terminal has priority list ????????????????????????
+```
 
 \#The final \`SELECT\` APDU is issued to the ICC, after the final selection has been made.
 
@@ -570,7 +565,7 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 #If Result == '00 00 00 00 00', the terminal will request a TC from ICC
 ```
 
-== Generate AC == 
+== Generate AC ==
 
 ```
                 [Terminal]                                     [ICC]
@@ -582,16 +577,12 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 
 @AC types:
 --> '00' AAC (Decline)
---> '40' TC  (Approval) 
+--> '40' TC  (Approval)
 ```
 
-\#If using CDA 
+\#If using CDA
 
 -- the response of the chip is signed under ICC private key
 
 -- ICC public key verify the returned AC which was signed using ICC private key
-
-
-
-
 
