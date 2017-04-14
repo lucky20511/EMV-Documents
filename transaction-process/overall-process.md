@@ -508,13 +508,35 @@ The steps of this online processing & issuer authentication:
 
 3.Issuer (1)authorizes the transaction, and 
          (2)calculates ARPC (Authorization Response Cryptogram), and 
-         (3)sends ARPC back to terminal
+         (3)sends ARPC back to terminal, 
          
+         in which -- ARPC is used for Issuer Authentication in the Completion Step and
+                  -- ARPC will be verified by ICC's TDES key
+                  -- TDES will be derived by using MDK, PAN and PAN sequence number
+
 @ARPC -- Authorization Response Cryptogram
 @ARQC -- Authorization Request Cryptogram
 ```
 
-#### 9b.Script Processing \(Online only -- ARQC\)
+#### 9b.Script Processing for Issuer \(Online only\)
+
+\#Issuer Script Processing that allow issuer to perform management actions on ICC
+
+\#It can be performed following actions either **before** or **after** the transaction is completed 
+
+```
+1.Resetting/Changing the PIN(online)
+
+2.Blocking ICC
+
+3.Block and UnBlocking an application
+
+4.Modify the Floor limit of ICC
+```
+
+
+
+
 
 #### 
 
