@@ -182,6 +182,10 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 
 
+
+
+
+
 == SDA ==
 
 Based on  Asymmetric Key Technology -&gt; public and private key
