@@ -160,6 +160,10 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#It consists of group of four bytes, each group indicating a range of records.
 
+
+
+
+
 #### 3.Data Authentication
 
 #### 
