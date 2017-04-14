@@ -60,11 +60,11 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#For each \`**SELECT**\`APDU ICC can respond with:
 
-     1.\`6A 82\` File Not Found
+     1.`6A 82` File Not Found
 
-     2.FCI data ++ \`62 89\` Application is Blocked
+     2.FCI data ++ `62 89` Application is Blocked
 
-     3.\`6A 81\` Card is Blocked
+     3.`6A 81\` Card is Blocked
 
      4.FCI data ++ \`90 00\` Application Selected
 
@@ -120,25 +120,25 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#The following APDU's are used:
 
-	1.\`GET PROCESSING OPTIONS\` or GPO  --&gt; issued once
+    1.\`GET PROCESSING OPTIONS\` or GPO  -- issued once
 
-	2.\`READ RECORD\` --&gt; issued more than once
+    2.\`READ RECORD\` -- issued more than once
 
-	@GPO is initial application
+    @GPO is initial application
 
-	@GPO is used to convey PDOL data to ICC, and to retrieve AIP and AFL
+    @GPO is used to convey PDOL data to ICC, and to retrieve AIP and AFL
 
-	@In most cases PDOL is empty    PDOL \(Processing Data Object List\)
+    @In most cases PDOL is empty    PDOL \(Processing Data Object List\)
 
 \#Main Steps:
 
             [Terminal]                 [ICC]
 
-    Step1	SELECT (application)-->
+    Step1    SELECT (application)-->
 
                             <-- FCI ++ `90 00`
 
-    Step2	GPO -->
+    Step2    GPO -->
 
                      <-- AIP ++ AFL ++ `90 00`
 
@@ -154,15 +154,11 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#It indicates which feature are supported by the chip \(SDA, DDA CDA, Issuer Authentication\)
 
-
-
 == AFL \(Application File Locator\) ==
 
 \#It is the index to the subsequent \`READ RECORD\` APDU's
 
 \#It consists of group of four bytes, each group indicating a range of records.
-
-
 
 #### 3.Data Authentication
 
