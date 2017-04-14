@@ -178,7 +178,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 \#Usig the data retrieved in Step 2, the terminal is able to determine \(1\)verify the **issuer public key\(in ICC\)** by **CA public key**, and \(2\)whether the smart card is genuine or not and determine chip authenticity by **issuer public key**.
 
-\#Done by RSA cryptography --&gt; Terminals contains a set of public keys: Visa, Master, Interac
+\#Done by RSA cryptography --&gt; Terminals contains a set of CA public keys: Visa, Master, Interac
 
 \#Three methods, depending on chip and terminal capabilities:
 
@@ -380,7 +380,7 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 -- Prior to offline enciphered PIN verification, '**GET CHALLENGE**' APDU is used to obtain a random number from the chip
 
--- The chip needs to contain a RSA key-pair \\(this can be a dedicated PIN key, or the same key used for DDA/CDA\\)
+-- The chip needs to contain a RSA key-pair \(this can be a dedicated PIN key, or the same key used for DDA/CDA\)
 
 #### 6.Terminal Risk Management\(Result stored in TVR\)
 
@@ -391,7 +391,7 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 \#It performs following risk management checks:
 
 ```
-1.Transaction Floor Limit
+1.Transaction Floor Limit of Terminal
 
 2.Transaction Random Selection
 
@@ -404,7 +404,9 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 ```
 1.TVR
+
 2.IR (Intermediate  Result)
+
 3.IAC TAC
 
 Result = (TVR & IR) & (IAC | TAC)
@@ -413,6 +415,7 @@ Result = (TVR & IR) & (IAC | TAC)
    1st -> IAC Denial  + TAC Denial
    2nd -> IAC Online  + TAC Online
    3rd -> IAC Default + TAC Offline
+   
 @IAC -- Issuer Action Code
 @TAC -- Terminal Action Code
 ```
@@ -509,7 +512,7 @@ The steps of this online processing & issuer authentication:
 3.Issuer (1)authorizes the transaction, and 
          (2)calculates ARPC (Authorization Response Cryptogram), and 
          (3)sends ARPC back to terminal, 
-         
+
          in which -- ARPC is used for Issuer Authentication in the Completion Step and
                   -- ARPC will be verified by ICC's TDES key
                   -- TDES will be derived by using MDK, PAN and PAN sequence number
@@ -520,9 +523,11 @@ The steps of this online processing & issuer authentication:
 
 #### 9b.Script Processing for Issuer \(Online only\)
 
-\#Issuer Script Processing that allow issuer to perform management actions on ICC
+\#Issuer Script Processing that allow issuer to perform management actions on ICC and it is signed with TDES MAC
 
-\#It can be performed following actions either **before** or **after** the transaction is completed 
+\#Issuer Script can **optionally** be encrypted with TDES encryption key\(but **necessary** in  ARPC\)
+
+\#It can be performed following actions either **before** or **after** the transaction is completed
 
 ```
 1.Resetting/Changing the PIN(online)
@@ -534,11 +539,16 @@ The steps of this online processing & issuer authentication:
 4.Modify the Floor limit of ICC
 ```
 
+== How Many Keys stored in ICC ==
+
+```
+1.Issuer Public Key
+2.ICC public Key
+3.ICC private Key
+4.TDES key
+```
 
 
-
-
-#### 
 
 #### 10.Completion
 
