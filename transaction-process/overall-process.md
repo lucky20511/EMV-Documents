@@ -106,11 +106,11 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#Once the final selection has been made, the \`**SELECT**\` APDU is issued to the ICC
 
-    	[Terminal]     		   [ICC]
-    	SELECT (application)-->
-    				<-- FCI ++ `90 00`
+        [Terminal]                [ICC]
+        SELECT (application)-->
+                    <-- FCI ++ `90 00`
 
-
+#### 
 
 #### 2.Read Application Data
 
