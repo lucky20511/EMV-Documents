@@ -364,19 +364,21 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 == Offline PIN Verification ==
 
-\#Before offline PIN Verification is performed, a 'GET DATA' APDU is sent to the chip to retrieve the PIN Try Counter \(PTC\)
+\#Before offline PIN Verification is performed, a '**GET DATA**' APDU is sent to the chip to retrieve the PIN Try Counter \(PTC\)
 
 \#If **Plaintext PIN **-- the PIN is sent directly to the chip for verification
 
 \#If **Enciphered PIN**
 
--- Prior to offline enciphered PIN verification, 'GET CHALLENGE' APDU is used to obtain a random number from the chip
+-- Prior to offline enciphered PIN verification, '**GET CHALLENGE**' APDU is used to obtain a random number from the chip
 
 -- The chip needs to contain a RSA key-pair \\(this can be a dedicated PIN key, or the same key used for DDA/CDA\\)
 
 #### 6.Terminal Risk Management
 
-#### 
+\#This step Terminal Risk Management is only performed when indicated in the AIP \(get from step.2 get application data\)
+
+\#It is optional for online-only terminal such as ATM.
 
 #### 7.Terminal Action Analysis\(Terminal Decision\)
 
