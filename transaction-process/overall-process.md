@@ -76,6 +76,16 @@ M&gt;1 -&gt;    1.Sort Application according to their priority
 
 \#Add to candidate list or not
 
+== Candidate List in Terminal ==
+
+```
+AID = RID + PIX + ASI
+             RID          PIX     ASI
+         A0 00 00 03     10 10    Yes
+```
+
+
+
 == PSE \(Payment System Environment\) ==
 
 \#PSE is optinal by both ICC and terminal application
@@ -181,8 +191,6 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 *3.CDA (Combined DDA/Generate AC)
 ```
-
-
 
 == CA \(Certification Authority\) public key ==
 
