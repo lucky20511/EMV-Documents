@@ -1,5 +1,3 @@
-
-
 # Open API
 
 ==========蓝牙操作函数BEGIN=================
@@ -12,7 +10,7 @@
 
 \*  @input: nScanType: 搜索返回类型0搜索时间到一起返回 1:搜到一个返回一个
 
-\* @callback:
+\* @callback: onDeviceFound\(\)
 
 \* @return:
 
@@ -22,15 +20,13 @@
 public int scanDevice(final int nScanTimer, final int nScanType);
 ```
 
+/\*
 
-
-/\* 
-
-\* 停止搜蓝牙设备 
+\* 停止搜蓝牙设备
 
 \* @input:
 
-\* @callback:
+\* @callback: 
 
 \* @return:
 
@@ -40,15 +36,13 @@ public int scanDevice(final int nScanTimer, final int nScanType);
 public int stopScanDevice();
 ```
 
-
-
 /\*
 
 \*  连接蓝牙设备
 
 \* @input: address- - 蓝牙设备mac地址
 
-\* @callback:
+\* @callback: onBlueState\(\),  Bluetooth related callback
 
 \* @return:
 
@@ -58,15 +52,13 @@ public int stopScanDevice();
 public int connectDevice(final String address);
 ```
 
-
-
 /\*
 
 \*  断开已经连接蓝牙设备
 
 \* @input:
 
-\* @callback:
+\* @callback: onBlueState\(\), Bluetooth related callback
 
 \*  @return:
 
@@ -75,8 +67,6 @@ public int connectDevice(final String address);
 ```
 public int disConnectBlueDevice();
 ```
-
-
 
 /\*
 
@@ -102,7 +92,7 @@ public void closeResource();
 
 \*  Get Information of Bluetooth Device
 
-\*  @input: 
+\*  @input:
 
 \*  @callback: onDeviceInfo\(\)
 
@@ -114,15 +104,13 @@ public void closeResource();
 public synchronized int getDeviceInfo();
 ```
 
-
-
 /\*
 
 \*  Input Passowrd（例如信用卡预授权完成等交易）
 
 \*  @input:  bPasskey -- 密码
 
-\*  @callback: 
+\*  @callback:
 
 \*  @return:
 
@@ -131,8 +119,6 @@ public synchronized int getDeviceInfo();
 ```
 Public synchronized int inputPassword(String bPassKey);
 ```
-
-
 
 /\*
 
@@ -144,7 +130,7 @@ Public synchronized int inputPassword(String bPassKey);
 
 \*  @input:  amount -- amount of transaction
 
-\*  @callback: 
+\*  @callback: swipCardState\(\)
 
 \*  @return:
 
@@ -154,15 +140,13 @@ Public synchronized int inputPassword(String bPassKey);
 public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amount);
 ```
 
-
-
 /\*
 
 \*  Write Work Key
 
 \*  @input:  bWorkKey
 
-\*  @callback: 
+\*  @callback:
 
 \*  @return:
 
@@ -172,15 +156,13 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 public synchronized int writeWorkKey(byte[] bWorkKey);
 ```
 
-
-
 /\*
 
 \*  Get Mac Information of Bluetooth Device
 
 \*  @input:  bDataKey
 
-\*  @callback: 
+\*  @callback:
 
 \*  @return:
 
@@ -190,15 +172,13 @@ public synchronized int writeWorkKey(byte[] bWorkKey);
 public synchronized int getMac(byte[] bDataKey)
 ```
 
-
-
 /\*
 
 \*  Get status of Battery
 
-\*  @input:  
+\*  @input:
 
-\*  @callback: 
+\*  @callback:
 
 \*  @return:
 
@@ -208,15 +188,13 @@ public synchronized int getMac(byte[] bDataKey)
 public synchronized int readBattery()
 ```
 
-
-
 /\*
 
 \*  Non-standard Card Testing
 
 \*  @input:  bDataKey
 
-\*  @callback: 
+\*  @callback:
 
 \*  @return:
 
@@ -271,7 +249,7 @@ public void getMacSucess(String macdata) {
 }
 ```
 
-/\* 刷卡回调,  获取PAN卡号数据 \*/
+//刷卡回调,  获取PAN卡号数据 
 
 ```java
 @Override
@@ -280,7 +258,7 @@ public void swipCardSucess(String cardNumber) {
 }
 ```
 
-//以下是蓝牙相关回调函数start===
+/\*\*\*\*\*   Bluetooth related callback &lt;START&gt; \*\*\*\*\*/
 
 //正在连接设备提示回调
 
@@ -324,7 +302,7 @@ public void onBluetoothPowerOff() {}
 public void onBluetoothPowerOn() {}
 ```
 
-//以上是蓝牙相关回调函数end===
+/\*\*\*\*\*   Bluetooth related callback &lt;END&gt; \*\*\*\*\*/
 
 //等待刷卡、插卡、挥卡回调
 
