@@ -26,7 +26,7 @@ public int scanDevice(final int nScanTimer, final int nScanType);
 
 \* @input:
 
-\* @callback: 
+\* @callback:
 
 \* @return:
 
@@ -162,7 +162,7 @@ public synchronized int writeWorkKey(byte[] bWorkKey);
 
 \*  @input:  bDataKey
 
-\*  @callback:
+\*  @callback:  getMacSucess\(\), 
 
 \*  @return:
 
@@ -249,7 +249,7 @@ public void getMacSucess(String macdata) {
 }
 ```
 
-//刷卡回调,  获取PAN卡号数据 
+//刷卡回调,  获取PAN卡号数据
 
 ```java
 @Override
