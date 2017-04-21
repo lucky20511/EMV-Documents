@@ -171,7 +171,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 
 #### 
 
-#### 3.Data Authentication \(Result stored in TVR\)
+#### 3.Data Authentication \(Result stored in TVR\) indicated in AIP \(get from step.2\)
 
 \#Usig the data retrieved in Step 2, the terminal is able to determine \(1\)verify the **issuer public key\(in ICC\)** by **CA public key**, and \(2\)whether the smart card is genuine or not and determine chip authenticity by **issuer public key**.
 
@@ -358,11 +358,11 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 \#Card holder will be prompted to enter PIN code
 
-\#PIN is encrypted in the PINPad and produced PIN block is stored in terminal
+\#PIN is **encrypted** in the PINPad and produced **PIN** **block** is stored in **terminal**
 
 \#Note: at this point, it is not yet known whether or not the transaction will go online
 
-\#What will happen if the PIN is entered but go offline?????
+\#What will happen if the PIN is entered but go offline?????????
 
 \#Once PIN is entered, this CVM is successful
 
@@ -380,7 +380,7 @@ Amount X      +     Amount Y       +  CV Rule 1   +   CV Rule 2  ....  CV Rule n
 
 -- The chip needs to contain a RSA key-pair \(this can be a dedicated PIN key, or the same key used for DDA/CDA\)
 
-#### 6.Terminal Risk Management\(Result stored in TVR\)
+#### 6.Terminal Risk Management\(Result stored in TVR\) \(performed when indicated in AIP\)
 
 \#This step Terminal Risk Management is only performed when indicated in the **AIP** \(from step.2 get application data\)
 
@@ -414,6 +414,18 @@ Result = (TVR & IR) & (IAC | TAC)
    2nd -> IAC Online  + TAC Online
    3rd -> IAC Default + TAC Default     ==> in Completion step
 
+
+              <1st>
+             /     \
+           AAC    <2nd>
+                 /     \
+                TC     ARQC
+                     /      \
+     (judge ARPC)Online     Offline<3rd>
+                /    \        /    \
+              AAC    TC     AAC    TC
+              
+              
 @IAC -- Issuer Action Code
 @TAC -- Terminal Action Code
 ```
@@ -497,7 +509,7 @@ Result = (TVR & IR) & (IAC | TAC)
 *4.ICC public key verify the returned AC which was signed using ICC private key
 
 
-*** Difference from DDA is step.4 will be applied in Card Action Analysis
+*** Difference from DDA is "step.4 will be applied in Card Action Analysis"
 
 *.The response to 'GENERATE AC' is signed using ICC private key
 *.The actual verification of this signed dynamic data takes place in 
@@ -519,7 +531,10 @@ The steps of this online processing & issuer authentication:
 
          in which -- ARPC is used for Issuer Authentication in the Completion Step and
                   -- ARPC will be verified by ICC's TDES key
+                  -- Issuer Authentication is based on TDES cryptography
+                  -- Every ICC has a unique TDES key 
                   -- TDES will be derived by using MDK, PAN and PAN sequence number
+
 
 @ARPC -- Authorization Response Cryptogram
 @ARQC -- Authorization Request Cryptogram
