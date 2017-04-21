@@ -257,7 +257,7 @@ public void onReadCardData(Map hashcard){
     String Track1=mapcard.get("Track1");
     CardInfo cardInfo=new CardInfo(PAN, Amount, SnData, PanSeqNo, Downgrad, AsciiPwd, IcData55, Encrytrack3, Encrytrack2, SzentryMode, ExpireDate, Track2, CardType, Pinblock, Track3,Track1);
     showLogMessage(cardInfo.toString());
-    
+
     if(count<10001){
         showLogMessage("当前第"+count+"次刷卡");
         byte[] set55Tag = hexStr2Bytes("9f26010095019f4102");
@@ -275,7 +275,26 @@ public void onReadCardData(Map hashcard){
 
 ```java
 @Override
-public void onBlueState() {}
+public void onBlueState() {
+Log.d("onDeviceState --------",Integer.toString(nState));
+		bOpenDevice =false;	
+		if (nState ==BluetoothCommmanager.BLUE_SCAN_NODEVICE)
+			showLogMessage("未找到蓝牙设备...");
+		else if (nState ==BluetoothCommmanager.BLUE_BONDING)
+		{
+			bOpenDevice =false;
+			showLogMessage("正在绑定蓝牙");
+			
+		}else if (nState ==BluetoothCommmanager.BLUE_BONDED)
+		{
+			bOpenDevice =false;
+			
+			showLogMessage("蓝牙绑定成功");
+			
+		}
+
+
+}
 ```
 
 //蓝牙搜素回调列表
