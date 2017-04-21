@@ -123,7 +123,53 @@ public void onErrorMessage()
 /\*\*\*交易过程中相关提示信息（包含芯片降级提示，此处提示后不作任何操作，可根据自己的需要流程走），详细提示文档不再赘述，MainActivity类中有对应说明\*\*\*/
 
 ```java
-public void swipCardState(int nResult) {}
+public void swipCardState(int nResult) {
+// TODO Auto-generated method stub
+	String strTips="";
+	switch(nResult)
+	{
+		case BluetoothCommmanager.SWIPE_SUCESS:
+			strTips = strTips + "刷卡正常";
+			break;
+		case BluetoothCommmanager.SWIPE_DOWNGRADE://芯片卡降级刷卡
+			strTips = strTips + "刷卡降级";	
+			break;
+		case BluetoothCommmanager.SWIPE_CANCEL:
+			strTips = strTips + "用户取消";
+			count = 2;
+			break;
+		case BluetoothCommmanager.SWIPE_TIMEOUT_STOP:
+			strTips =strTips + "超时退出";
+			break;
+		case BluetoothCommmanager.SWIPE_IC_FAILD:
+			strTips =strTips + "IC卡处理数据失败";	
+			break;
+		case BluetoothCommmanager.SWIPE_NOICPARM:
+			strTips =strTips + "无IC卡参数";
+			break;
+		case BluetoothCommmanager.SWIPE_STOP:
+			strTips =strTips + "交易终止";		
+			break;
+		case BluetoothCommmanager.SWIPE_IC_REMOVE:
+			strTips =strTips + "加密失败,用户拔出IC卡";	
+			break;
+		case BluetoothCommmanager.SWIPE_LOW_POWER:
+			strTips =strTips + "低电量,不允许交易";
+			break;
+		case BluetoothCommmanager.BLUE_POWER_OFF:
+			strTips =strTips + "已关机";	
+			break;
+		case BluetoothCommmanager.BLUE_SDK_ERROR:
+			strTips =strTips + "SDK文件丢失,SDK异常";	
+			break;
+		case BluetoothCommmanager.BLUE_DEVICE_ERROR:
+			strTips =strTips + "设备不合法";	//数据解析异常
+			break;
+		default:
+			break;
+		}
+	showLogMessage("提示:" +strTips);   
+}
 ```
 
 //错误回调
@@ -141,7 +187,7 @@ public void onError(intnResult) {
 ```java
 @Override
  public void onTimeout() {
- showLogMessage("Timeout");
+     showLogMessage("Timeout");
  }
 ```
 
