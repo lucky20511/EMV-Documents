@@ -157,7 +157,7 @@ public synchronized int writeMainKey(byte[] bMainKey);
 
 //Example
 String order = "12345678901234567890123456789012";
-byte[] sendBuf = hexStr2Bytes(order);			
+byte[] sendBuf = hexStr2Bytes(order);            
 BluetoothComm.writeMainKey(sendBuf);
 ```
 
@@ -199,7 +199,7 @@ public synchronized int getMac(byte[] bDataKey)
 
 \*  @input:
 
-\*  @callback:
+\*  @callback: onResult\(\)
 
 \*  @return:
 
