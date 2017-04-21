@@ -15,7 +15,7 @@
 ```
 -Issuer Country Code
 
--Application Selection Flag --> Prioirty for ABM or Non ABM
+-Application Selection Flag --> Priority for ABM or Non ABM
 ```
 
 \#The chosen EMV Application is activated in both terminal and smart card
@@ -424,8 +424,8 @@ Result = (TVR & IR) & (IAC | TAC)
      (judge ARPC)Online     Offline<3rd>
                 /    \        /    \
               AAC    TC     AAC    TC
-              
-              
+
+
 @IAC -- Issuer Action Code
 @TAC -- Terminal Action Code
 ```
