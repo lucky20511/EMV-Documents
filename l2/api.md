@@ -294,7 +294,9 @@ public void onBlueState() {
 
 ```java
 @Override
-public void onDeviceFound(finalArrayList<BluetoothGoPayBridgeDevice> mDevices){}
+public void onDeviceFound(finalArrayList<BluetoothGoPayBridgeDevice> mDevices){
+    //It is a list of Bluetooth Device
+}
 ```
 
 
