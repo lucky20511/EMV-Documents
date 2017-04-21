@@ -159,11 +159,11 @@ AID = RID + PIX + ASI
 
 SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data authentication
 
-== AIP \(Application Interchange Profile\) ==
+== **AIP** \(Application Interchange Profile\) ==
 
 \#It indicates which feature are supported by the chip \(SDA, DDA CDA, Issuer Authentication\)
 
-== AFL \(Application File Locator\) ==
+== **AFL** \(Application File Locator\) ==
 
 \#It is the index to the subsequent \`**READ RECORD**\` APDU's
 
@@ -187,7 +187,7 @@ SFI\(first 5 bits\) + First Record + Last Record + Num data for offline data aut
 *3.CDA (Combined DDA/Generate AC) -- Affect card risk management
 ```
 
-== CA \(Certification Authority\) public key ==
+== CA \(Certification Authority\) public key ==  where is CA public keys stored????
 
 \#The CA public key is used to verify the issuer public key certificate\(Stored on chip\). If it is ok, the terminal  can trust the issuer public key
 
@@ -205,7 +205,7 @@ AID = RID + PIX + ASI
 
 == SDA ==
 
-\#SDA is static -- the signature that is verified is the **same**  for every transaction
+\#SDA is static -- the signature that is verified is the **same** for every transaction
 
 \#SDA consists of 3 steps:
 
@@ -224,7 +224,7 @@ AID = RID + PIX + ASI
 
 \#DDA is dynamic -- the signature that is verified is **different** for every transaction
 
-\#For DDA, the chip contains it's own RSA key pair and needs to be RSA-capable
+\#For DDA, the chip contains it's **own** **RSA key** pair and needs to be **RSA-capable**
 
 \#DDA consists of 3 steps:
 
