@@ -16,7 +16,7 @@
 
 \*/
 
-```
+```java
 public int scanDevice(final int nScanTimer, final int nScanType);
 ```
 
@@ -32,7 +32,7 @@ public int scanDevice(final int nScanTimer, final int nScanType);
 
 \*/
 
-```
+```java
 public int stopScanDevice();
 ```
 
@@ -48,7 +48,7 @@ public int stopScanDevice();
 
 \*/
 
-```
+```java
 public int connectDevice(final String address);
 ```
 
@@ -64,7 +64,7 @@ public int connectDevice(final String address);
 
 \*/
 
-```
+```java
 public int disConnectBlueDevice();
 ```
 
@@ -80,7 +80,7 @@ public int disConnectBlueDevice();
 
 \*/
 
-```
+```java
 public void closeResource();
 ```
 
@@ -100,7 +100,7 @@ public void closeResource();
 
 \*/
 
-```
+```java
 public synchronized int getDeviceInfo();
 ```
 
@@ -116,7 +116,7 @@ public synchronized int getDeviceInfo();
 
 \*/
 
-```
+```java
 Public synchronized int inputPassword(String bPassKey);
 ```
 
@@ -136,7 +136,7 @@ Public synchronized int inputPassword(String bPassKey);
 
 \*/
 
-```
+```java
 public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amount);
 ```
 
@@ -152,7 +152,7 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 
 \*/
 
-```
+```java
 public synchronized int goPayTxnCancel ();
 ```
 
@@ -168,7 +168,7 @@ public synchronized int goPayTxnCancel ();
 
 \*/
 
-```
+```java
 public synchronized int writeMainKey(byte[] bMainKey);
 
 //Example
@@ -189,7 +189,7 @@ BluetoothComm.writeMainKey(sendBuf);
 
 \*/
 
-```
+```java
 public synchronized int writeWorkKey(byte[] bWorkKey);
 ```
 
@@ -205,7 +205,7 @@ public synchronized int writeWorkKey(byte[] bWorkKey);
 
 \*/
 
-```
+```java
 public synchronized int getMac(byte[] bDataKey)
 ```
 
@@ -221,7 +221,7 @@ public synchronized int getMac(byte[] bDataKey)
 
 \*/
 
-```
+```java
 public synchronized int readBattery()
 ```
 
@@ -237,7 +237,7 @@ public synchronized int readBattery()
 
 \*/
 
-```
+```java
 public synchronized int noUnderstandCard()
 ```
 
