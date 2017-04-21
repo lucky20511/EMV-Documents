@@ -141,6 +141,8 @@ AID = RID + PIX + ASI
 
                             <-- FCI ++ `90 00`
 
+    ------------- Initiate Application(Select Application) Finished ---------
+
     Step2    GPO -->
 
                      <-- AIP ++ AFL ++ `90 00`
