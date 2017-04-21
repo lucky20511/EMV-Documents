@@ -68,6 +68,8 @@ public void closeResource();
 
 \*  Get Information of Bluetooth Device
 
+\*  @input: 
+
 \*  @callback: onDeviceInfo\(\)
 
 \*  @return:
@@ -78,147 +80,73 @@ public void closeResource();
 public synchronized int getDeviceInfo();
 ```
 
-&lt;!--  
- /\* Font Definitions \*/  
-@font-face  
-	{font-family:"Courier New";  
-	panose-1:2 7 3 9 2 2 5 2 4 4;  
-	mso-font-charset:0;  
-	mso-generic-font-family:auto;  
-	mso-font-pitch:variable;  
-	mso-font-signature:-536859905 -1073711037 9 0 511 0;}  
-@font-face  
-	{font-family:宋体;  
-	mso-font-charset:134;  
-	mso-generic-font-family:auto;  
-	mso-font-pitch:variable;  
-	mso-font-signature:3 680460288 22 0 262145 0;}  
-@font-face  
-	{font-family:"Cambria Math";  
-	panose-1:2 4 5 3 5 4 6 3 2 4;  
-	mso-font-charset:1;  
-	mso-generic-font-family:roman;  
-	mso-font-format:other;  
-	mso-font-pitch:variable;  
-	mso-font-signature:0 0 0 0 0 0;}  
-@font-face  
-	{font-family:Consolas;  
-	panose-1:2 11 6 9 2 2 4 3 2 4;  
-	mso-font-charset:0;  
-	mso-generic-font-family:auto;  
-	mso-font-pitch:variable;  
-	mso-font-signature:-520092929 1073806591 9 0 415 0;}  
- /\* Style Definitions \*/  
-p.MsoNormal, li.MsoNormal, div.MsoNormal  
-	{mso-style-unhide:no;  
-	mso-style-qformat:yes;  
-	mso-style-parent:"";  
-	margin:0cm;  
-	margin-bottom:.0001pt;  
-	text-align:justify;  
-	text-justify:inter-ideograph;  
-	mso-pagination:none;  
-	font-size:10.5pt;  
-	mso-bidi-font-size:12.0pt;  
-	font-family:"Times New Roman";  
-	mso-fareast-font-family:宋体;  
-	mso-font-kerning:1.0pt;  
-	mso-fareast-language:ZH-CN;}  
-.MsoChpDefault  
-	{mso-style-type:export-only;  
-	mso-default-props:yes;  
-	font-size:10.0pt;  
-	mso-ansi-font-size:10.0pt;  
-	mso-bidi-font-size:10.0pt;  
-	mso-fareast-font-family:宋体;}  
-@page WordSection1  
-	{size:612.0pt 792.0pt;  
-	margin:72.0pt 72.0pt 72.0pt 72.0pt;  
-	mso-header-margin:36.0pt;  
-	mso-footer-margin:36.0pt;  
-	mso-paper-source:0;}  
-div.WordSection1  
-	{page:WordSection1;}  
---&gt;  
 
 
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+/\*
 
-函数名：inputPassword
+\*  Input Passowrd（例如信用卡预授权完成等交易）
 
-功能描述：MPO 设备上输提 刷卡无输入金额无密码（例如信用卡预授权完成等交易）
+\*  @input:  bPasskey -- 密码
 
-入口参数：
+\*  @callback: 
 
-String bPasskey --密码
+\*  @return:
+
+\*/
+
+```
+Public synchronized int inputPassword(String bPassKey);
+```
 
 
 
+/\*
 
+\*  Start Transaction
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
+\*  @input:  dataBuffer -- content of card
 
-**Public synchronizedint**inputPassword\(**String**bPassKey\);
+\*  @input:  timeout -- timeout of transaction
 
+\*  @input:  amount -- amount of transaction
 
+\*  @callback: 
 
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+\*  @return:
 
-函数名：goPayTxnStart
+\*/
 
-功能描述：蓝牙设备上输提刷卡无输入金额无密码（例如信用卡预授权完成等交易）
+```
+public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amount);
+```
 
-入口参数：
+/\*
 
-long  timeout --刷卡交易超时时间\(毫秒\)
+\*  Write Main Key
 
-long lAmount---交易金额,如果需要自己传入金额,赋值进入即可
+\*  @input:  bMainKey
 
+\*  @callback: 
 
+\*  @return:
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
+\*/
 
-**publicsynchronizedint**goPayTxnStart \(byte\[\] dataBuffer ,**long**timeout,**long**amount\);
+```
+public abstract int writeMainKey(byte[] bMainKey);
+```
 
+Example:
 
-
-
-
-
-
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-
-
-函 数 名：writeMainKey
-
-功能描述：写入主密钥
-
-入口参数：
-
-
-
-**Byte\[\]**bMainKey --主密钥数据16个字节
-
-返回说明：成功/失败\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
-
-
-
-**publicabstractint**writeMainKey\(**byte**\[\] bMainKey\);
-
-
-
-调用示例:
-
+```
 String order ="12345678901234567890123456789012";
-
-**byte**\[\] sendBuf = hexStr2Bytes\(order\);BluetoothComm.writeMainKey\(sendBuf\);
+byte[] sendBuf = hexStr2Bytes(order);
+BluetoothComm.writeMainKey(sendBuf);
+```
 
 
 
 /\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-
 
 函 数 名：writeWorkKey
 
@@ -226,13 +154,9 @@ String order ="12345678901234567890123456789012";
 
 入口参数：
 
-
-
 **byte**\[\]bWorkKey --工作密钥数据60个字节
 
 16字节PIN密钥+4个字节校验码+16字节MAC +4个字节MAC校验码+磁道加密密钥+磁道加密密钥校验码4个字节 ==60个字节
-
-
 
 返回说明：成功/失败
 
@@ -240,35 +164,21 @@ String order ="12345678901234567890123456789012";
 
 **publicsynchronizedint**writeWorkKey\(**byte**\[\]bWorkKey\)
 
-
-
-
-
-
-
 /\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 函 数 名：getMac
 
 功能描述：获取MAC值
 
- byte\[\]bDataKey MAC数据
+byte\[\]bDataKey MAC数据
 
 返回说明：
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
 
-
-
-
-
 **publicsynchronizedint**getMac\(**byte**\[\] bDataKey\)
 
-
-
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-
 
 函 数 名：readBattery
 
@@ -276,17 +186,11 @@ String order ="12345678901234567890123456789012";
 
 入口参数：
 
-
-
 返回说明：成功/失败\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
-
-
 
 **publicsynchronizedint** readBattery\(\)
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-
 
 函 数 名：noUnderstandCard
 
@@ -298,13 +202,7 @@ String order ="12345678901234567890123456789012";
 
 **publicsynchronizedint**noUnderstandCard\(\)
 
-
-
-
-
 ==========功能操作函数END==================
-
-
 
 ## 
 
