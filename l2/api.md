@@ -4,11 +4,11 @@
 
 /\*
 
-\*  搜蓝牙设备,
+\*  Scanning Bluetooth device
 
-\*  @input: nScanTimer: 搜索时间秒类型
+\*  @input: nScanTimer: scanning time
 
-\*  @input: nScanType: 搜索返回类型0搜索时间到一起返回 1:搜到一个返回一个
+\*  @input: nScanType: 0--&gt;return all devices in list at the end   1--&gt;return device one by one right after finding out a device
 
 \* @callback: onDeviceFound\(\)
 
@@ -130,7 +130,7 @@ Public synchronized int inputPassword(String bPassKey);
 
 \*  @input:  amount -- amount of transaction
 
-\*  @callback: trigger -&gt; onWaitingForCard\(\) --&gt; onReadCardData\(\) --&gt; swipCardState\(\) and swipCardSucess\(\)
+\*  @callback: trigger -&gt; onWaitingForCard\(\) --&gt; onDetectIC\(\) --&gt; onReadCardData\(\) --&gt; swipCardState\(\) and swipCardSucess\(\)
 
 \*  @return:
 
@@ -146,7 +146,7 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 
 \*  @input:
 
-\*  @callback: 
+\*  @callback:
 
 \*  @return:
 
