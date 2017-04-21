@@ -215,7 +215,7 @@ public synchronized int readBattery()
 
 \*  @input:  bDataKey
 
-\*  @callback:
+\*  @callback: onReadUnderStandCardData\(\) --&gt; when reading the card
 
 \*  @return:
 
