@@ -233,42 +233,41 @@ public void onResult(int Code, int nResult, String MsgData){
 @Override
 public void onReadCardData(Map hashcard){
     Message updateMessage = mMainMessageHandler.obtainMessage();
-		updateMessage.obj="";
-		updateMessage.what=R.id.btnAPass;
-		updateMessage.sendToTarget();
-	//换种方式显示数据
-		mapcard=(Map<String, String>)hashcard;
-		showLogMessage("加密信息：");	
-		String PAN= mapcard.get("PAN");
-		String Amount=mapcard.get("Amount");
-		String SnData=mapcard.get("SnData");
-		String PanSeqNo=mapcard.get("PanSeqNo");
-		String Downgrad=mapcard.get("Downgrad");
-		String AsciiPwd=mapcard.get("AsciiPwd");
-		String IcData55=mapcard.get("IcData55");
-		String Encrytrack3=mapcard.get("Encrytrack3");
-		String Encrytrack2=mapcard.get("Encrytrack2");
-		String SzentryMode=mapcard.get("SzEntryMode");
-		String ExpireDate=mapcard.get("ExpireDate");
-		String Track2=mapcard.get("Track2");
-		String CardType=mapcard.get("CardType");
-		String Pinblock=mapcard.get("Pinblock");
-		String Track3=mapcard.get("Track3");
-		String Track1=mapcard.get("Track1");
-		CardInfo cardInfo=new CardInfo(PAN, Amount, SnData, PanSeqNo, Downgrad, AsciiPwd, IcData55, Encrytrack3, Encrytrack2, SzentryMode, ExpireDate, Track2, CardType, Pinblock, Track3,Track1);
-		showLogMessage(cardInfo.toString());
-		
-		if(count<10001){
-			showLogMessage("当前第"+count+"次刷卡");
-			byte[] set55Tag = hexStr2Bytes("9f26010095019f4102");
-			BluetoothComm.goPayTxnStart (set55Tag , WAIT_TIMEOUT,nAmount);
-			
-			count++;
-		}else if(count>=10001){
-			showLogMessage("停止刷卡");
-			count=2;
-			//BluetoothComm.MagnCancel();
-		}
+    updateMessage.obj="";
+    updateMessage.what=R.id.btnAPass;
+    updateMessage.sendToTarget();
+    //换种方式显示数据
+    mapcard=(Map<String, String>)hashcard;
+    showLogMessage("加密信息：");    
+    String PAN= mapcard.get("PAN");
+    String Amount=mapcard.get("Amount");
+    String SnData=mapcard.get("SnData");
+    String PanSeqNo=mapcard.get("PanSeqNo");
+    String Downgrad=mapcard.get("Downgrad");
+    String AsciiPwd=mapcard.get("AsciiPwd");
+    String IcData55=mapcard.get("IcData55");
+    String Encrytrack3=mapcard.get("Encrytrack3");
+    String Encrytrack2=mapcard.get("Encrytrack2");
+    String SzentryMode=mapcard.get("SzEntryMode");
+    String ExpireDate=mapcard.get("ExpireDate");
+    String Track2=mapcard.get("Track2");
+    String CardType=mapcard.get("CardType");
+    String Pinblock=mapcard.get("Pinblock");
+    String Track3=mapcard.get("Track3");
+    String Track1=mapcard.get("Track1");
+    CardInfo cardInfo=new CardInfo(PAN, Amount, SnData, PanSeqNo, Downgrad, AsciiPwd, IcData55, Encrytrack3, Encrytrack2, SzentryMode, ExpireDate, Track2, CardType, Pinblock, Track3,Track1);
+    showLogMessage(cardInfo.toString());
+    
+    if(count<10001){
+        showLogMessage("当前第"+count+"次刷卡");
+        byte[] set55Tag = hexStr2Bytes("9f26010095019f4102");
+        BluetoothComm.goPayTxnStart (set55Tag , WAIT_TIMEOUT,nAmount);
+        count++;
+    }else if(count>=10001){
+        showLogMessage("停止刷卡");
+        count=2;
+        //BluetoothComm.MagnCancel();
+    }
 }
 ```
 
