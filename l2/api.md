@@ -142,11 +142,29 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 
 /\*
 
+\*  Write Main Key
+
+\*  @input:  bMainKey
+
+\*  @callback: onLoadMasterKeySucc\(\)
+
+\*  @return:
+
+\*/
+
+```
+public synchronized int writeMainKey(byte[] bMainKey);
+```
+
+
+
+/\*
+
 \*  Write Work Key
 
 \*  @input:  bWorkKey
 
-\*  @callback:
+\*  @callback: onLoadWorkKeySucc\(\)
 
 \*  @return:
 
