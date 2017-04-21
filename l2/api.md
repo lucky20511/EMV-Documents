@@ -154,9 +154,12 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 
 ```
 public synchronized int writeMainKey(byte[] bMainKey);
+
+//Example
+String order = "12345678901234567890123456789012";
+byte[] sendBuf = hexStr2Bytes(order);			
+BluetoothComm.writeMainKey(sendBuf);
 ```
-
-
 
 /\*
 
