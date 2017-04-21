@@ -67,7 +67,7 @@ M>1 ->  1.Sort Application according to their priority
 
      @APDU=Application Protocol Data Unit
 
-\#If an application is found\(SW = \`90 00\`\) compare terminal AID with DF Name\(AID\) in FCI
+\#If an application is found\(SW = \`90 00\`\) compare terminal AID with DF Name in FCI
 
 \#Add to candidate list or not
 
@@ -590,7 +590,7 @@ Shows the Result **AAC**\(Decline\) or **TC**\(Approval\) get from **Terminal Ac
 
 == ARPC Judgement ==
 
-\#The Terminal judges if it is AAC or TC by reading ARPC content. 
+\#The Terminal judges if it is AAC or TC by reading ARPC content.
 
 == Generate AC ==
 
