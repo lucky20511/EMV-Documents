@@ -1,3 +1,5 @@
+
+
 # Open API
 
 ==========蓝牙操作函数BEGIN=================
@@ -6,9 +8,11 @@
 
 \*  搜蓝牙设备,
 
-\*  @nScanTimer: 搜索时间秒类型
+\*  @input: nScanTimer: 搜索时间秒类型
 
-\*  @nScanType: 搜索返回类型0搜索时间到一起返回 1:搜到一个返回一个
+\*  @input: nScanType: 搜索返回类型0搜索时间到一起返回 1:搜到一个返回一个
+
+\* @callback:
 
 \* @return:
 
@@ -18,17 +22,33 @@
 public int scanDevice(final int nScanTimer, final int nScanType);
 ```
 
-/\* 停止搜蓝牙设备 \*/
+
+
+/\* 
+
+\* 停止搜蓝牙设备 
+
+\* @input:
+
+\* @callback:
+
+\* @return:
+
+\*/
 
 ```
 public int stopScanDevice();
 ```
 
+
+
 /\*
 
 \*  连接蓝牙设备
 
-\* @address蓝牙设备mac地址
+\* @input: address- - 蓝牙设备mac地址
+
+\* @callback:
 
 \* @return:
 
@@ -38,9 +58,15 @@ public int stopScanDevice();
 public int connectDevice(final String address);
 ```
 
+
+
 /\*
 
 \*  断开已经连接蓝牙设备
+
+\* @input:
+
+\* @callback:
 
 \*  @return:
 
@@ -50,9 +76,17 @@ public int connectDevice(final String address);
 public int disConnectBlueDevice();
 ```
 
+
+
 /\*
 
 \* 释放蓝牙资源,在关闭APP的时候需要释放当前资源
+
+\* @input:
+
+\* @callback:
+
+\*  @return:
 
 \*/
 
@@ -120,11 +154,13 @@ Public synchronized int inputPassword(String bPassKey);
 public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amount);
 ```
 
+
+
 /\*
 
-\*  Write Main Key
+\*  Write Work Key
 
-\*  @input:  bMainKey
+\*  @input:  bWorkKey
 
 \*  @callback: 
 
@@ -133,74 +169,62 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 \*/
 
 ```
-public abstract int writeMainKey(byte[] bMainKey);
-```
-
-Example:
-
-```
-String order ="12345678901234567890123456789012";
-byte[] sendBuf = hexStr2Bytes(order);
-BluetoothComm.writeMainKey(sendBuf);
+public synchronized int writeWorkKey(byte[] bWorkKey);
 ```
 
 
 
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+/\*
 
-函 数 名：writeWorkKey
+\*  Get Mac Information of Bluetooth Device
 
-功能描述：写入工作密钥
+\*  @input:  bDataKey
 
-入口参数：
+\*  @callback: 
 
-**byte**\[\]bWorkKey --工作密钥数据60个字节
+\*  @return:
 
-16字节PIN密钥+4个字节校验码+16字节MAC +4个字节MAC校验码+磁道加密密钥+磁道加密密钥校验码4个字节 ==60个字节
+\*/
 
-返回说明：成功/失败
+```
+public synchronized int getMac(byte[] bDataKey)
+```
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
 
-**publicsynchronizedint**writeWorkKey\(**byte**\[\]bWorkKey\)
 
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+/\*
 
-函 数 名：getMac
+\*  Get status of Battery
 
-功能描述：获取MAC值
+\*  @input:  
 
-byte\[\]bDataKey MAC数据
+\*  @callback: 
 
-返回说明：
+\*  @return:
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
+\*/
 
-**publicsynchronizedint**getMac\(**byte**\[\] bDataKey\)
+```
+public synchronized int readBattery()
+```
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-函 数 名：readBattery
 
-功能描述：获取电池电量
+/\*
 
-入口参数：
+\*  Non-standard Card Testing
 
-返回说明：成功/失败\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
+\*  @input:  bDataKey
 
-**publicsynchronizedint** readBattery\(\)
+\*  @callback: 
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+\*  @return:
 
-函 数 名：noUnderstandCard
+\*/
 
-功能描述：非标准卡测试
-
-入口参数：
-
-返回说明：\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
-
-**publicsynchronizedint**noUnderstandCard\(\)
+```
+public synchronized int noUnderstandCard()
+```
 
 ==========功能操作函数END==================
 
