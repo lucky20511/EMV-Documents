@@ -130,7 +130,7 @@ Public synchronized int inputPassword(String bPassKey);
 
 \*  @input:  amount -- amount of transaction
 
-\*  @callback: trigger -&gt; onWaitingForCard\(\) --&gt; swipCardState\(\) and swipCardSucess\(\)
+\*  @callback: trigger -&gt; onWaitingForCard\(\) --&gt; onReadCardData\(\) --&gt; swipCardState\(\) and swipCardSucess\(\)
 
 \*  @return:
 
