@@ -106,11 +106,11 @@ public synchronized int getDeviceInfo();
 
 /\*
 
-\*  Input Passowrd（例如信用卡预授权完成等交易）
+\*  Input passowrd on swipCardSucess\(\)
 
 \*  @input:  bPasskey -- 密码
 
-\*  @callback:
+\*  @callback:  ???????
 
 \*  @return:
 
@@ -162,7 +162,7 @@ public synchronized int writeWorkKey(byte[] bWorkKey);
 
 \*  @input:  bDataKey
 
-\*  @callback:  getMacSucess\(\), 
+\*  @callback:  getMacSucess\(\),
 
 \*  @return:
 
