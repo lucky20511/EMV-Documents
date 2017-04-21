@@ -231,7 +231,7 @@ AID = RID + PIX + ASI
 ```
 1.Retrieval of CA public key
 
-2.CA public key verify the Issuer public key certificate (same as SDA)
+2.CA public key verify the Issuer public key certificate(in ICC) (same as SDA)
 
 3.Issuer public key verify ICC public key certificate
 
@@ -258,7 +258,7 @@ AID = RID + PIX + ASI
 ```
 1.Retrieval of CA public key
 
-2.CA public key verify the Issuer public key certificate (same as SDA)
+2.CA public key verify the Issuer public key certificate(in ICC) (same as SDA)
 
 3.Issuer public key verify ICC public key certificate (same as DDA)
 
