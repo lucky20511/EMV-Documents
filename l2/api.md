@@ -106,7 +106,7 @@ public synchronized int getDeviceInfo();
 
 /\*
 
-\*  Input passowrd on swipCardSucess\(\)
+\*   Input passowrd on swipCardSucess\(\)
 
 \*  @input:  bPasskey -- 密码
 
@@ -130,7 +130,7 @@ Public synchronized int inputPassword(String bPassKey);
 
 \*  @input:  amount -- amount of transaction
 
-\*  @callback: swipCardState\(\), swipCardSucess\(\)
+\*  @callback: trigger -&gt; onWaitingForCard\(\) --&gt; swipCardState\(\) and swipCardSucess\(\)
 
 \*  @return:
 
@@ -138,6 +138,22 @@ Public synchronized int inputPassword(String bPassKey);
 
 ```
 public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amount);
+```
+
+/\*
+
+\*  Terminate Transaction
+
+\*  @input:
+
+\*  @callback: swipCardState\(\)
+
+\*  @return:
+
+\*/
+
+```
+public synchronized int goPayTxnCancel ();
 ```
 
 /\*
