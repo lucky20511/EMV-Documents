@@ -125,50 +125,50 @@ public void onErrorMessage()
 ```java
 public void swipCardState(int nResult) {
 // TODO Auto-generated method stub
-	String strTips="";
-	switch(nResult)
-	{
-		case BluetoothCommmanager.SWIPE_SUCESS:
-			strTips = strTips + "刷卡正常";
-			break;
-		case BluetoothCommmanager.SWIPE_DOWNGRADE://芯片卡降级刷卡
-			strTips = strTips + "刷卡降级";	
-			break;
-		case BluetoothCommmanager.SWIPE_CANCEL:
-			strTips = strTips + "用户取消";
-			count = 2;
-			break;
-		case BluetoothCommmanager.SWIPE_TIMEOUT_STOP:
-			strTips =strTips + "超时退出";
-			break;
-		case BluetoothCommmanager.SWIPE_IC_FAILD:
-			strTips =strTips + "IC卡处理数据失败";	
-			break;
-		case BluetoothCommmanager.SWIPE_NOICPARM:
-			strTips =strTips + "无IC卡参数";
-			break;
-		case BluetoothCommmanager.SWIPE_STOP:
-			strTips =strTips + "交易终止";		
-			break;
-		case BluetoothCommmanager.SWIPE_IC_REMOVE:
-			strTips =strTips + "加密失败,用户拔出IC卡";	
-			break;
-		case BluetoothCommmanager.SWIPE_LOW_POWER:
-			strTips =strTips + "低电量,不允许交易";
-			break;
-		case BluetoothCommmanager.BLUE_POWER_OFF:
-			strTips =strTips + "已关机";	
-			break;
-		case BluetoothCommmanager.BLUE_SDK_ERROR:
-			strTips =strTips + "SDK文件丢失,SDK异常";	
-			break;
-		case BluetoothCommmanager.BLUE_DEVICE_ERROR:
-			strTips =strTips + "设备不合法";	//数据解析异常
-			break;
-		default:
-			break;
-		}
-	showLogMessage("提示:" +strTips);   
+    String strTips="";
+    switch(nResult)
+    {
+        case BluetoothCommmanager.SWIPE_SUCESS:
+            strTips = strTips + "刷卡正常";
+            break;
+        case BluetoothCommmanager.SWIPE_DOWNGRADE://芯片卡降级刷卡
+            strTips = strTips + "刷卡降级";    
+            break;
+        case BluetoothCommmanager.SWIPE_CANCEL:
+            strTips = strTips + "用户取消";
+            count = 2;
+            break;
+        case BluetoothCommmanager.SWIPE_TIMEOUT_STOP:
+            strTips =strTips + "超时退出";
+            break;
+        case BluetoothCommmanager.SWIPE_IC_FAILD:
+            strTips =strTips + "IC卡处理数据失败";    
+            break;
+        case BluetoothCommmanager.SWIPE_NOICPARM:
+            strTips =strTips + "无IC卡参数";
+            break;
+        case BluetoothCommmanager.SWIPE_STOP:
+            strTips =strTips + "交易终止";        
+            break;
+        case BluetoothCommmanager.SWIPE_IC_REMOVE:
+            strTips =strTips + "加密失败,用户拔出IC卡";    
+            break;
+        case BluetoothCommmanager.SWIPE_LOW_POWER:
+            strTips =strTips + "低电量,不允许交易";
+            break;
+        case BluetoothCommmanager.BLUE_POWER_OFF:
+            strTips =strTips + "已关机";    
+            break;
+        case BluetoothCommmanager.BLUE_SDK_ERROR:
+            strTips =strTips + "SDK文件丢失,SDK异常";    
+            break;
+        case BluetoothCommmanager.BLUE_DEVICE_ERROR:
+            strTips =strTips + "设备不合法";    //数据解析异常
+            break;
+        default:
+            break;
+        }
+    showLogMessage("提示:" +strTips);   
 }
 ```
 
@@ -196,7 +196,34 @@ public void onError(intnResult) {
 ```java
 @Override
 public void onResult(int Code, int nResult, String MsgData){
+	// TODO Auto-generated method stub
+	switch(Code)
+	{
+		case BluetoothCommmanager.ICBRUSH:
+		case BluetoothCommmanager.Battery:
+			if (nResult==0x00){
+				showLogMessage("Battery:"+MsgData.toString());
+			}else if(nResult ==-1){
+				showLogMessage("充电中");
+			}else{
+				showLogMessage("Battery失败,错误代码:" +Integer.toString(nResult));
+			}
+			break;
 
+		//以下是IC卡功能 BEGIN===
+		//检测IC卡是否在位
+		case BluetoothCommmanager.IC_GETSTATUS:	
+			if (nResult==0x00)
+				showLogMessage("IC 状态:卡插入" );
+			else
+				showLogMessage("IC 状态: 无卡");
+			break;
+		//以上是IC卡功能 END==
+
+		default:
+			showLogMessage("获取失败,错误类型 :"+Integer.toString(Code) +",错误代码:"+nResult);
+			break;
+	}			
 }
 ```
 
