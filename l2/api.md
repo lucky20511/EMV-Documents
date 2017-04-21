@@ -1,3 +1,103 @@
+# Open API
+
+==========蓝牙操作函数BEGIN=================
+
+/\*
+
+\*  搜蓝牙设备,
+
+\*  @nScanTimer: 搜索时间秒类型
+
+\*  @nScanType: 搜索返回类型0搜索时间到一起返回 1:搜到一个返回一个
+
+\* @return:
+
+\*/
+
+```
+public int scanDevice(final int nScanTimer, final int nScanType);
+```
+
+
+
+
+
+/\* 停止搜蓝牙设备 \*/
+
+```
+public int stopScanDevice();
+```
+
+
+
+/\*
+
+ \*  连接蓝牙设备
+
+ \* @address蓝牙设备mac地址
+
+ \* @return:
+
+ \*/
+
+```
+public int connectDevice(final String address);
+```
+
+
+
+
+
+/\* 
+
+\*  断开已经连接蓝牙设备
+
+\*  @return: 
+
+\*/
+
+```
+public int disConnectBlueDevice();
+```
+
+
+
+/\*
+
+ \* 释放蓝牙资源,在关闭APP的时候需要释放当前资源
+
+\*/
+
+```
+public void closeResource();
+```
+
+==============蓝牙操作函数END=================
+
+
+
+
+
+==========功能操作函数BEING==================
+
+/\*
+
+\*  Get Information of Bluetooth Device
+
+\*  @callback:
+
+\*  @return:  
+
+\*/
+
+```
+public synchronized int getDeviceInfo();
+```
+
+
+
+
+
 ## Callback
 
 //初始化设置回调 & 设置当前窗体回调
