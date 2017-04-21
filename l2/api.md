@@ -146,7 +146,7 @@ public synchronized int goPayTxnStart (byte[] dataBuffer ,long timeout, long amo
 
 \*  @input:
 
-\*  @callback: swipCardState\(\)
+\*  @callback: 
 
 \*  @return:
 
