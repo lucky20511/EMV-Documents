@@ -222,7 +222,7 @@ AID = RID + PIX + ASI
 
 == DDA ==
 
-\#DDA is dynamic -- the signature that is verified is **different** for every transaction
+\#DDA is dynamic -- the **signature** that is verified is **different** for every transaction
 
 \#For DDA, the chip contains it's **own** **RSA key** pair and needs to be **RSA-capable**
 
@@ -260,7 +260,7 @@ AID = RID + PIX + ASI
 
 2.CA public key verify the Issuer public key certificate (same as SDA)
 
-3.Issuer public key verify ICC public key certificate
+3.Issuer public key verify ICC public key certificate (same as DDA)
 
 *Step 4 is in Card Risk Management
 *4.ICC public key verify the returned AC which was signed using ICC private key
