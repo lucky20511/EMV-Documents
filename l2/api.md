@@ -276,24 +276,17 @@ public void onReadCardData(Map hashcard){
 ```java
 @Override
 public void onBlueState() {
-Log.d("onDeviceState --------",Integer.toString(nState));
-		bOpenDevice =false;	
-		if (nState ==BluetoothCommmanager.BLUE_SCAN_NODEVICE)
-			showLogMessage("未找到蓝牙设备...");
-		else if (nState ==BluetoothCommmanager.BLUE_BONDING)
-		{
-			bOpenDevice =false;
-			showLogMessage("正在绑定蓝牙");
-			
-		}else if (nState ==BluetoothCommmanager.BLUE_BONDED)
-		{
-			bOpenDevice =false;
-			
-			showLogMessage("蓝牙绑定成功");
-			
-		}
-
-
+    Log.d("onDeviceState --------",Integer.toString(nState));
+    bOpenDevice =false;    
+    if (nState == BluetoothCommmanager.BLUE_SCAN_NODEVICE){
+        showLogMessage("未找到蓝牙设备...");
+    }else if (nState == BluetoothCommmanager.BLUE_BONDING){
+        bOpenDevice =false;
+        showLogMessage("正在绑定蓝牙");
+    }else if (nState == BluetoothCommmanager.BLUE_BONDED){
+        bOpenDevice =false;
+        showLogMessage("蓝牙绑定成功");
+    }
 }
 ```
 
