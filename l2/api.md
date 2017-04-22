@@ -317,7 +317,7 @@ public void onBluetoothConectedFail() {}
 public void onBluetoothDisconnected() {}
 ```
 
-// Return status :  scan disconnected
+// Return status :  scan timeout
 
 ```java
 public void onScanTimeout() {}
