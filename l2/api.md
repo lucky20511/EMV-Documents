@@ -22,7 +22,7 @@ public int scanDevice(final int nScanTimer, final int nScanType);
 
 /\*
 
-\*  Stop Scanning device 
+\*  Stop Scanning device
 
 \* @input:
 
@@ -83,8 +83,6 @@ public int disConnectBlueDevice();
 ```java
 public void closeResource();
 ```
-
-==============蓝牙操作函数END=================
 
 ### &lt;Functionality&gt;
 
@@ -301,13 +299,13 @@ public void swipCardSucess(String cardNumber) {
 public void onBluetoothIng() {}
 ```
 
-// Return status :  device connected successfully   
+// Return status :  device connected successfully
 
 ```java
 public void onBluetoothConected() {}
 ```
 
-// Return status :  device connected unsuccessfully  
+// Return status :  device connected unsuccessfully
 
 ```java
 public void onBluetoothConectedFail() {}
