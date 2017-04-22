@@ -1,6 +1,6 @@
 # Open API
 
-==========蓝牙操作函数BEGIN=================
+### **&lt;Bluetooth Related&gt;**
 
 /\*
 
@@ -22,7 +22,7 @@ public int scanDevice(final int nScanTimer, final int nScanType);
 
 /\*
 
-\* 停止搜蓝牙设备
+\*  Stop Scanning device 
 
 \* @input:
 
@@ -38,9 +38,9 @@ public int stopScanDevice();
 
 /\*
 
-\*  连接蓝牙设备
+\*  Connect Bluetooth device
 
-\* @input: address- - 蓝牙设备mac地址
+\* @input: address -- MAC address of Bluetooth device
 
 \* @callback: onBlueState\(\),  Bluetooth related callback
 
@@ -54,7 +54,7 @@ public int connectDevice(final String address);
 
 /\*
 
-\*  断开已经连接蓝牙设备
+\*  Disconnect connected Bluetooth device
 
 \* @input:
 
@@ -70,7 +70,7 @@ public int disConnectBlueDevice();
 
 /\*
 
-\* 释放蓝牙资源,在关闭APP的时候需要释放当前资源
+\* Release bluetooth related resource before system termination
 
 \* @input:
 
@@ -86,7 +86,7 @@ public void closeResource();
 
 ==============蓝牙操作函数END=================
 
-==========功能操作函数BEING==================
+### &lt;Functionality&gt;
 
 /\*
 
@@ -108,7 +108,7 @@ public synchronized int getDeviceInfo();
 
 \*   Input passowrd on swipCardSucess\(\)
 
-\*  @input:  bPasskey -- 密码
+\*  @input:  bPasskey
 
 \*  @callback:  ???????
 
@@ -241,22 +241,20 @@ public synchronized int readBattery()
 public synchronized int noUnderstandCard()
 ```
 
-==========功能操作函数END==================
-
 ## 
 
 ## 
 
 # Callback
 
-//初始化设置回调 & 设置当前窗体回调
+//Initialization and setting this pointer
 
 ```java
 BluetoothCommmanager BluetoothComm = null;
 BluetoothComm = BluetoothCommmanager.getInstance(this, this);
 ```
 
-//主密钥
+//Main Key
 
 ```java
 @Override
@@ -266,7 +264,7 @@ public void onLoadMasterKeySucc(Boolean isSucess) {
 }
 ```
 
-//工作密钥
+//Work Key
 
 ```java
 @Override
@@ -276,7 +274,7 @@ public void onLoadWorkKeySucc(Boolean isSucess) {
 }
 ```
 
-//MAC数据
+//MAC address data
 
 ```java
 @Override
@@ -286,7 +284,7 @@ public void getMacSucess(String macdata) {
 }
 ```
 
-//刷卡回调,  获取PAN卡号数据
+//Swipe callback when succeed
 
 ```java
 @Override
@@ -297,43 +295,43 @@ public void swipCardSucess(String cardNumber) {
 
 /\*\*\*\*\*   Bluetooth related callback &lt;START&gt; \*\*\*\*\*/
 
-//正在连接设备提示回调
+// Return status : connecting device
 
 ```java
 public void onBluetoothIng() {}
 ```
 
-//蓝牙连接成功回调
+// Return status :  device connected successfully   
 
 ```java
 public void onBluetoothConected() {}
 ```
 
-//蓝牙连接失败回调
+// Return status :  device connected unsuccessfully  
 
 ```java
 public void onBluetoothConectedFail() {}
 ```
 
-//蓝牙断开回调
+// Return status :  device disconnected
 
 ```java
 public void onBluetoothDisconnected() {}
 ```
 
-//搜索超时回调
+// Return status :  scan disconnected
 
 ```java
 public void onScanTimeout() {}
 ```
 
-//蓝牙关闭
+// Return status :  Bluetooth power Off
 
 ```java
 public void onBluetoothPowerOff() {}
 ```
 
-//蓝牙开启
+// Return status :  Bluetooth power On
 
 ```java
 public void onBluetoothPowerOn() {}
@@ -341,7 +339,7 @@ public void onBluetoothPowerOn() {}
 
 /\*\*\*\*\*   Bluetooth related callback &lt;END&gt; \*\*\*\*\*/
 
-//等待刷卡、插卡、挥卡回调
+//Wait for sliding card or inserting card
 
 ```java
 @Override
@@ -351,7 +349,7 @@ public void onWaitingForCardSwipe()
 }
 ```
 
-//检测到刷卡插入IC卡回调
+//Detecting IC card insertion
 
 ```java
 public void onDetectIC()
@@ -360,7 +358,7 @@ public void onDetectIC()
 }
 ```
 
-//非标准卡测试，未获取到磁道信息是回调
+//Non standard card reading
 
 ```java
 public void onErrorMessage()
@@ -369,7 +367,7 @@ public void onErrorMessage()
 }
 ```
 
-/\*\*\*交易过程中相关提示信息（包含芯片降级提示，此处提示后不作任何操作，可根据自己的需要流程走），详细提示文档不再赘述，MainActivity类中有对应说明\*\*\*/
+//Related Card reading status
 
 ```java
 public void swipCardState(int nResult) {
@@ -421,17 +419,17 @@ public void swipCardState(int nResult) {
 }
 ```
 
-//错误回调
+//Return error meg
 
 ```java
 @Override
-public void onError(intnResult) {
+public void onError(int nResult) {
     //TODOAuto-generated method stub
     showLogMessage("操作失败，错误代码:"+Integer.toString(nResult));
 }
 ```
 
-/\*指令超时时间到了\*/
+//Return timeout
 
 ```java
 @Override
@@ -440,7 +438,7 @@ public void onError(intnResult) {
  }
 ```
 
-/\*返回一个操作接口结果 -- IC卡状态, 电量状态\*/
+//Return the status of IC card and battery
 
 ```java
 @Override
@@ -476,7 +474,7 @@ public void onResult(int Code, int nResult, String MsgData){
 }
 ```
 
-//刷卡加密后返回的结果,所有银联要求的数据全部返回在当前MAP里面
+//Return all process data as Map
 
 ```java
 @Override
@@ -520,7 +518,7 @@ public void onReadCardData(Map hashcard){
 }
 ```
 
-//蓝牙搜索连接状态
+//Return Bluetooth status
 
 ```java
 @Override
@@ -539,7 +537,7 @@ public void onBlueState() {
 }
 ```
 
-//蓝牙搜素回调列表
+//Return Bluetooth device found
 
 ```java
 @Override
