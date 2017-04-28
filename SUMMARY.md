@@ -15,6 +15,7 @@
 ## Technical Documents
 
 * [HL Document](technical-documents/hl-document.md)
+* [Test](technical-documents/test.md)
 
 ## L2
 
