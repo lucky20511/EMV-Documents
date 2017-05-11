@@ -2,7 +2,7 @@
     "plugins": [
         "theme-faq",
         "-highlight",
-        "sunlight-highlighter",
+        "sunlight-highlighter"
     ]
 }
 
