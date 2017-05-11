@@ -1,4 +1,4 @@
 {
-    "plugins": ["theme-faq"]
+    "plugins": ["theme-faq", "-highlight", "code-highlighter"]
 }
 
